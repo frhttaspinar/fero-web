@@ -1,0 +1,155 @@
+@import "tailwindcss";
+
+:root {
+  --color-paper: #f4f4f6;
+  --color-cloud: #ececef;
+  --color-mist: #e2e3e8;
+  --color-line: #d6d7dd;
+  --color-graphite: #6e6e73;
+  --color-ash: #86868b;
+  --color-ink: #1d1d1f;
+  --color-void: #0a0a0b;
+  --color-signal: #3d5afe;
+  --color-signal-soft: #7b93ff;
+  --color-violet: #8b5cf6;
+}
+
+@theme inline {
+  --color-paper: var(--color-paper);
+  --color-cloud: var(--color-cloud);
+  --color-mist: var(--color-mist);
+  --color-line: var(--color-line);
+  --color-graphite: var(--color-graphite);
+  --color-ash: var(--color-ash);
+  --color-ink: var(--color-ink);
+  --color-void: var(--color-void);
+  --color-signal: var(--color-signal);
+  --color-signal-soft: var(--color-signal-soft);
+  --color-violet: var(--color-violet);
+
+  --font-display: var(--font-space-grotesk);
+  --font-body: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
+
+  --animate-marquee: marquee 32s linear infinite;
+  --animate-fade-up: fade-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-shine: shine 3s linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes shine {
+    from {
+      background-position: 200% center;
+    }
+    to {
+      background-position: -200% center;
+    }
+  }
+}
+
+html {
+  background: var(--color-paper);
+  scroll-behavior: auto;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior-y: none;
+}
+
+::selection {
+  background: var(--color-signal);
+  color: white;
+}
+
+.font-display {
+  font-family: var(--font-display), var(--font-body), sans-serif;
+}
+
+.font-mono {
+  font-family: var(--font-mono), monospace;
+}
+
+/* visible focus ring, no outline suppression */
+:focus-visible {
+  outline: 2px solid var(--color-signal);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Shooting stars (hero backdrop). Each star travels its full diagonal in
+   roughly the first ~15% of its own animation-duration (~0.5–1s given the
+   3.5–6s durations used), then stays invisible for the rest of the cycle —
+   that tail is what reads as "random gaps" between streaks. Duration/delay/
+   position/length vary per element via inline style. */
+.shooting-star {
+  position: absolute;
+  width: 2px;
+  border-radius: 9999px;
+  transform: rotate(215deg);
+  transform-origin: top;
+  opacity: 0;
+  animation-name: shooting-star;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes shooting-star {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(215deg);
+    opacity: 0;
+  }
+  2% {
+    opacity: 1;
+  }
+  14% {
+    opacity: 1;
+    transform: translate3d(var(--tx, -420px), var(--ty, 420px), 0) rotate(215deg);
+  }
+  20% {
+    opacity: 0;
+    transform: translate3d(var(--tx, -420px), var(--ty, 420px), 0) rotate(215deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(var(--tx, -420px), var(--ty, 420px), 0) rotate(215deg);
+  }
+}

@@ -84,7 +84,7 @@ export function ContactModal({
             role="dialog"
             aria-modal="true"
             aria-labelledby="contact-modal-title"
-            className="relative z-10 w-full max-w-lg rounded-2xl border border-line bg-paper p-8 shadow-[0_30px_80px_rgba(0,0,0,0.25)] sm:p-10"
+            className="relative z-10 max-h-[90dvh] w-full max-w-lg overflow-y-auto rounded-2xl border border-line bg-paper p-6 shadow-[0_30px_80px_rgba(0,0,0,0.25)] sm:p-10"
             initial={{ opacity: 0, y: 30, scale: 0.97 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.97 }}
@@ -93,7 +93,7 @@ export function ContactModal({
             <button
               onClick={handleClose}
               aria-label="Kapat"
-              className="absolute right-5 top-5 flex h-9 w-9 items-center justify-center rounded-full text-graphite transition hover:bg-cloud hover:text-ink"
+              className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-full text-graphite transition hover:bg-cloud hover:text-ink"
             >
               <X size={18} />
             </button>

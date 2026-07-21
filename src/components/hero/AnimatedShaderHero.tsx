@@ -32,8 +32,11 @@ export function AnimatedShaderHero() {
       ref={containerRef}
       className="relative isolate h-[1000vh] w-full overflow-x-clip bg-paper"
     >
-      {/* Pinned stage: everything the viewer sees while scrubbing lives here. */}
-      <div className="sticky top-0 h-screen w-full overflow-hidden">
+      {/* Pinned stage: everything the viewer sees while scrubbing lives here.
+          h-dvh (not h-screen/100vh) so iOS Safari's collapsing address bar
+          never clips the stage bottom. The 1000vh track above stays in vh on
+          purpose: dvh there would change the scrub length mid-scroll. */}
+      <div className="sticky top-0 h-dvh w-full overflow-hidden">
         <HeroSignatureVideo scrollYProgress={scrollYProgress} />
         <MeshGradientBackground />
 

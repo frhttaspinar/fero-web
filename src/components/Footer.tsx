@@ -95,7 +95,7 @@ function FooterLink({ href, label }: { href: string; label: string }) {
     <li>
       <a
         href={href}
-        className="group inline-flex items-start gap-1.5 text-sm leading-relaxed text-slate-600 transition-all duration-200 hover:translate-x-1 hover:text-black"
+        className="group inline-flex items-start gap-1.5 py-1 text-sm leading-relaxed text-slate-600 transition-all duration-200 hover:translate-x-1 hover:text-black"
       >
         <span>{label}</span>
       </a>
@@ -117,7 +117,7 @@ export function Footer() {
   return (
     <footer id="iletisim" className="border-t border-line bg-white">
       <div className="mx-auto max-w-6xl px-6 py-20">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
           {/* 1 — Marka ve İletişim */}
           <div className="flex flex-col">
             <Image
@@ -147,7 +147,7 @@ export function Footer() {
                         ? "noopener noreferrer"
                         : undefined
                     }
-                    className="group inline-flex items-center gap-3 text-sm text-slate-600 transition-colors hover:text-black"
+                    className="group inline-flex items-center gap-3 py-1 text-sm text-slate-600 transition-colors hover:text-black"
                   >
                     <span className="flex h-9 w-9 items-center justify-center rounded-full border border-line text-slate-500 transition-colors group-hover:border-slate-900 group-hover:bg-slate-900 group-hover:text-white">
                       {social.icon}
@@ -195,7 +195,7 @@ export function Footer() {
                 <li key={post.label}>
                   <a
                     href={post.href}
-                    className="group block text-sm leading-snug text-slate-600 transition-all duration-200 hover:translate-x-1 hover:text-black"
+                    className="group block py-1 text-sm leading-snug text-slate-600 transition-all duration-200 hover:translate-x-1 hover:text-black"
                   >
                     {post.label}
                   </a>

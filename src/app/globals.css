@@ -74,6 +74,10 @@ body {
   font-family: var(--font-body), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   overscroll-behavior-y: none;
+  /* Mobile safety net: decorative elements (glow orbs, mesh blobs, scattered
+     gallery cards) must never introduce a horizontal scrollbar. `clip` avoids
+     creating a scroll container, so position: sticky keeps working. */
+  overflow-x: clip;
 }
 
 ::selection {

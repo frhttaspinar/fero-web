@@ -52,7 +52,7 @@ export function TerminalReveal() {
 
   return (
     <section ref={containerRef} className="relative h-[300vh] bg-paper">
-      <div className="sticky top-0 flex h-screen w-full items-center justify-center overflow-hidden px-4 sm:px-8">
+      <div className="sticky top-0 flex h-dvh w-full items-center justify-center overflow-hidden px-4 sm:px-8">
         <MeshGradientBackground />
 
         <div className="relative z-10 w-full max-w-2xl overflow-hidden rounded-2xl border border-black/10 bg-[#0c0c10] shadow-[0_30px_80px_rgba(0,0,0,0.35)]">

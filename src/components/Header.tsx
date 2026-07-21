@@ -42,12 +42,14 @@ export function Header() {
           />
         </a>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        {/* gap-4 + px-2 keeps the old visual rhythm (gap-8) while giving each
+            link a comfortable touch target for tablets, where md: nav shows. */}
+        <nav className="hidden items-center gap-4 md:flex">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="font-mono text-xs uppercase tracking-[0.15em] text-slate-900 transition hover:text-slate-600"
+              className="px-2 py-2.5 font-mono text-xs uppercase tracking-[0.15em] text-slate-900 transition hover:text-slate-600"
             >
               {link.label}
             </a>
@@ -56,7 +58,7 @@ export function Header() {
 
         <button
           onClick={open}
-          className="rounded-full bg-void px-5 py-2.5 text-xs font-medium uppercase tracking-[0.1em] text-paper transition hover:bg-ink"
+          className="rounded-full bg-void px-5 py-3 text-xs font-medium uppercase tracking-[0.1em] text-paper transition hover:bg-ink"
         >
           Bana Ulaşın
         </button>

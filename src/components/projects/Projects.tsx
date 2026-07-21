@@ -1,92 +1,104 @@
 "use client";
 
-import {
-  Smartphone,
-  Sparkles,
-  Terminal,
-  Bot,
-  LineChart,
-} from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { ProjectCard, type Project } from "./ProjectCard";
 
-// Ten showcase projects. Where a real client screenshot fits the brief it is
-// used directly (Decoroys, marble studio, corporate, etc.); the remaining
-// backend/AI/tooling work — which has no marketing UI to screenshot — uses a
-// branded gradient tile with its own icon instead.
+// Showcase projects backed by real client references under /refe. Each card's
+// showcase area follows the screenshot's natural aspect ratio (`ratio`), so
+// web sites render wide and mobile-app captures render as portrait frames —
+// the masonry layout below absorbs the mixed heights. Backend/AI/tooling work
+// with no marketing UI uses a branded gradient tile with an icon instead.
+// `link` is the live site; "#" is a placeholder until the real URL is filled.
 const PROJECTS: Project[] = [
   {
-    title: "Decoroys E-Ticaret",
+    title: "E-Ticaret",
     tag: "E-Ticaret",
     description:
-      "Doğal mermer ürünleri için PayTR ve RevenueCat entegrasyonlu, yüksek dönüşümlü e-ticaret altyapısı.",
-    image: "/refe/decoroys.png",
+      "Mobilya ve dekorasyon ürünleri için PayTR entegrasyonlu, yüksek dönüşümlü e-ticaret altyapısı.",
+    image: "/refe/deco.png",
+    ratio: "1919 / 882",
+    link: "#",
   },
   {
-    title: "Nazife Yenge (iOS)",
+    title: "Mobil Uygulama",
     tag: "Mobil · iOS",
     description:
-      "React Native ve Expo ile geliştirilmiş, App Store standartlarında eğlence ve yaşam tarzı mobil uygulaması.",
-    image: "/refe/yasam-tarzi.png",
+      "React Native ve Expo ile geliştirilen; numeroloji analizi, sesli sohbet ve kredili kullanım sunan yaşam tarzı uygulaması.",
+    image: "/refe/mobil.png",
+    ratio: "1242 / 2688",
+    link: "#",
   },
   {
     title: "Atelier Mermer Studio",
     tag: "Marka Vitrini",
     description:
-      "Sanat ve zanaatı dijitale taşıyan, modern ve rustik esintili yüksek performanslı marka vitrini.",
-    image: "/refe/mermer.png",
+      "El işçiliği mermer atölyesi için sanat ve zanaatı dijitale taşıyan, modern ve rustik esintili marka vitrini.",
+    image: "/refe/atelier.png",
+    ratio: "1920 / 879",
+    link: "#",
   },
   {
-    title: "Fal & Eğlence Asistanı",
-    tag: "Mobil · UX",
+    title: "Yaşam Tarzı",
+    tag: "Web · Sağlık",
     description:
-      "Kullanıcıları günlük olarak etkileşimde tutan, akıcı UI/UX ile tasarlanmış mobil deneyim.",
-    image: "/refe/premium-koyu.png",
+      "Diyetisyen için kişiye özel beslenme programları ve online randevuyu öne çıkaran kişisel marka sitesi.",
+    image: "/refe/yasam.png",
+    ratio: "635 / 348",
+    link: "#",
   },
   {
-    title: "Sesli Kredi Sistemi",
-    tag: "Canlı Ses",
+    title: "Mühendislik",
+    tag: "Kurumsal · Web",
     description:
-      "Firebase Firestore ile anlık senkronize olan, süreli kredi ve session mantığına sahip canlı ses altyapısı.",
-    icon: Smartphone,
-    accent: "from-emerald-500 to-teal-600",
+      "Harita mühendisliği firması için ölçüm, imar ve kadastro hizmetlerini tanıtan kurumsal web sitesi.",
+    image: "/refe/harita.png",
+    ratio: "425 / 491",
+    link: "#",
   },
   {
-    title: "Premium Etkinlik Platformu",
-    tag: "Web · Etkileşim",
+    title: "Moda Butik",
+    tag: "E-Ticaret · Moda",
     description:
-      "Scroll etkileşimleri ve hero animasyonlarıyla zenginleştirilmiş, üst düzey RSVP ve etkinlik yönetim sistemi.",
+      "Moda markası için zamansız koleksiyonları premium bir alışveriş deneyimiyle sunan butik e-ticaret vitrini.",
     image: "/refe/moda.png",
+    ratio: "491 / 333",
+    link: "#",
   },
   {
-    title: "Local Build Pipeline",
-    tag: "DevOps",
+    title: "Kurumsal Tanıtım",
+    tag: "Kurumsal · Hukuk",
     description:
-      "EAS (Expo Application Services) ile bulut sıralarını beklemeksizin kurulan lokal derleme ve otomasyon hattı.",
-    icon: Terminal,
-    accent: "from-slate-700 to-slate-900",
+      "Hukuk ve danışmanlık bürosu için faaliyet alanlarını ve iletişimi öne çıkaran prestijli kurumsal tanıtım sitesi.",
+    image: "/refe/ova.png",
+    ratio: "1920 / 879",
+    link: "#",
   },
   {
-    title: "Yapay Zeka Müşteri Temsilcisi",
+    title: "Yapay Zeka Asistanı",
     tag: "Yapay Zeka",
     description:
-      "Gemini 2.0 Flash Live altyapısıyla geliştirilmiş, sıfır gecikmeli akıllı asistan entegrasyonu.",
-    icon: Bot,
-    accent: "from-signal to-violet",
+      "Gemini Pro Live altyapısıyla geliştirilmiş, sıfır gecikmeli akıllı asistan entegrasyonu.",
+    image: "/refe/yz.jpeg",
+    ratio: "736 / 1104",
+    link: "#",
   },
   {
-    title: "B2B Otomasyon Paneli",
-    tag: "Dashboard",
+    title: "Mühendislik Firması",
+    tag: "Kurumsal · Web",
     description:
-      "Kurumsal firmalar için veri analizi ve raporlama süreçlerini tek ekranda toplayan modern dashboard.",
-    image: "/refe/kurumsal.png",
+      "Jeoloji mühendisliği firması için zemin etüdü, analiz ve danışmanlık hizmetlerini öne çıkaran kurumsal web sitesi.",
+    image: "/refe/mühendislik.png",
+    ratio: "427 / 489",
+    link: "#",
   },
   {
-    title: "Finansal Raporlama Aracı",
-    tag: "Web · Analitik",
+    title: "Mobil Uygulama - Asistan",
+    tag: "Mobil · Yapay Zeka",
     description:
-      "Karmaşık verileri temiz, okunabilir ve anlık grafiklere döken güvenli web uygulaması.",
-    icon: LineChart,
-    accent: "from-amber-500 to-orange-600",
+      "Araç sahipleri için arıza teşhisi, maliyet tahmini ve sesli usta asistanı sunan yapay zeka destekli mobil uygulama.",
+    image: "/refe/mobilusta.png",
+    ratio: "1206 / 2484",
+    link: "#",
   },
 ];
 
@@ -103,13 +115,15 @@ export function Projects() {
             Referanslarımız &amp; Projelerimiz
           </h2>
           <p className="mt-4 text-lg text-graphite">
-            E-ticaret altyapılarından mobil uygulamalara, canlı ses
-            sistemlerinden yapay zeka panellerine — uçtan uca teslim ettiğim
+            E-ticaret altyapılarından mobil uygulamalara, kurumsal web
+            sitelerinden yapay zeka asistanlarına — uçtan uca teslim ettiğim
             projelerden bir seçki.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {/* Masonry columns: cards keep their screenshots' natural aspect
+            ratios, so portrait app captures and wide site captures coexist. */}
+        <div className="columns-1 gap-5 sm:columns-2 lg:columns-3">
           {PROJECTS.map((project, i) => (
             <ProjectCard key={project.title} project={project} index={i} />
           ))}

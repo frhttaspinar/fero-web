@@ -14,9 +14,10 @@ import {
 import { ServiceCard, type Service } from "./ServiceCard";
 import { GlowOrb } from "../GlowOrb";
 
-// Bento layout: on md+ the two anchor offerings (Web, and the signature AI
-// voice assistant) each span two columns, landing on a diagonal — 2+1 / 1+2 /
-// 1+1+1 fills a clean 3×3 without an orphan card.
+// Bento layout: phones stack one column, tablets (sm) run two columns with the
+// two anchor offerings (Web, and the signature AI voice assistant) spanning a
+// full row, and lg+ runs the 3×3 diagonal — 2+1 / 1+2 / 1+1+1 — without an
+// orphan card.
 //
 // Each card's showcase area is data-driven: `nodes` are floating tech chips
 // positioned in percent, `links` draw dashed connectors between them.
@@ -25,7 +26,7 @@ const SERVICES: Service[] = [
     title: "Web Geliştirme",
     description:
       "Hızlı, erişilebilir ve arama motorlarına hazır modern web uygulamaları. Next.js ile ölçeklenen, bakımı kolay bir kod tabanı.",
-    className: "md:col-span-2",
+    className: "sm:col-span-2",
     nodes: [
       { x: 50, y: 46, logo: "nextjs", primary: true },
       { x: 26, y: 34, logo: "react" },
@@ -58,11 +59,11 @@ const SERVICES: Service[] = [
     description:
       "Gelen çağrıları 7/24 doğal bir sesle karşılayan, randevu oluşturan ve sık sorulan soruları yanıtlayan yapay zeka telefon asistanı.",
     featured: true,
-    className: "md:col-span-2",
+    className: "sm:col-span-2",
     nodes: [
       { x: 50, y: 46, icon: PhoneCall, primary: true, glow: true },
       { x: 22, y: 30, label: "Google Antigravity", glow: true },
-      { x: 77, y: 30, label: "Gemini 2.0 Flash Live", glow: true },
+      { x: 77, y: 30, label: "Gemini Pro Live", glow: true },
       { x: 25, y: 68, eq: true },
       { x: 74, y: 68, label: "CRM Entegrasyonu" },
     ],
@@ -153,7 +154,7 @@ export function Services() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map((service, i) => (
             <ServiceCard key={service.title} service={service} index={i} />
           ))}

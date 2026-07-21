@@ -234,7 +234,7 @@ export function ScrollGallery() {
           section scrolls, so scrollYProgress can scrub the timeline. */}
       <div
         ref={stageRef}
-        className="sticky top-0 h-screen w-full overflow-hidden"
+        className="sticky top-0 h-dvh w-full overflow-hidden"
       >
         {/* Container */}
         <div className="flex h-full w-full flex-col items-center justify-center perspective-1000">

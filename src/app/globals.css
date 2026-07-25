@@ -27,6 +27,15 @@
   --color-signal-soft: var(--color-signal-soft);
   --color-violet: var(--color-violet);
 
+  /* Semantic aliases (shadcn-style) pinned to the light palette — the site is
+     light-only, so these never flip with prefers-color-scheme. */
+  --color-background: var(--color-paper);
+  --color-foreground: var(--color-ink);
+  --color-card: #ffffff;
+  --color-muted: var(--color-mist);
+  --color-muted-foreground: var(--color-graphite);
+  --color-border: var(--color-line);
+
   --font-display: var(--font-space-grotesk);
   --font-body: var(--font-inter);
   --font-mono: var(--font-jetbrains-mono);

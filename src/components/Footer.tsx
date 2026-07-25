@@ -35,7 +35,7 @@ const POSTS = [
   { label: "Kullanıcı Deneyimini Artıran 3D Web Animasyonları", href: "#" },
 ];
 
-const SOCIALS = [
+const SOCIALS: { label: string; href?: string; icon: React.ReactNode }[] = [
   {
     label: "Instagram",
     href: "https://www.instagram.com/ferotaspinar/",
@@ -56,8 +56,8 @@ const SOCIALS = [
     ),
   },
   {
+    // href yok: tıklanınca mail uygulaması yerine iletişim modalı açılır
     label: "E-posta",
-    href: "mailto:frhttaspinar@gmail.com",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4" aria-hidden="true">
         <rect
@@ -137,25 +137,40 @@ export function Footer() {
             </p>
 
             <ul className="mt-6 flex flex-col gap-3">
-              {SOCIALS.map((social) => (
-                <li key={social.label}>
-                  <a
-                    href={social.href}
-                    target={social.href.startsWith("http") ? "_blank" : undefined}
-                    rel={
-                      social.href.startsWith("http")
-                        ? "noopener noreferrer"
-                        : undefined
-                    }
-                    className="group inline-flex items-center gap-3 py-1 text-sm text-slate-600 transition-colors hover:text-black"
-                  >
+              {SOCIALS.map((social) => {
+                const linkClasses =
+                  "group inline-flex items-center gap-3 py-1 text-sm text-slate-600 transition-colors hover:text-black";
+                const content = (
+                  <>
                     <span className="flex h-9 w-9 items-center justify-center rounded-full border border-line text-slate-500 transition-colors group-hover:border-slate-900 group-hover:bg-slate-900 group-hover:text-white">
                       {social.icon}
                     </span>
                     {social.label}
-                  </a>
-                </li>
-              ))}
+                  </>
+                );
+                return (
+                  <li key={social.label}>
+                    {social.href ? (
+                      <a
+                        href={social.href}
+                        target={social.href.startsWith("http") ? "_blank" : undefined}
+                        rel={
+                          social.href.startsWith("http")
+                            ? "noopener noreferrer"
+                            : undefined
+                        }
+                        className={linkClasses}
+                      >
+                        {content}
+                      </a>
+                    ) : (
+                      <button type="button" onClick={open} className={linkClasses}>
+                        {content}
+                      </button>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
 
             <button

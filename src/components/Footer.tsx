@@ -1,17 +1,19 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { useContactModal } from "./contact/ContactModalContext";
 
 const YEAR = new Date().getFullYear();
 
-const SITE_MAP = [
+const SITE_MAP: { label: string; href?: string }[] = [
   { label: "Ana Sayfa", href: "#top" },
   { label: "Hizmetler", href: "#hizmetler" },
   { label: "Projeler", href: "#projeler" },
-  { label: "İletişim", href: "#iletisim" },
-  { label: "Gizlilik Politikası", href: "/gizlilik" },
+  // href yok: tıklanınca iletişim modalı açılır
+  { label: "İletişim" },
+  { label: "Gizlilik Politikası", href: "/gizlilik-politikasi" },
 ];
 
 const SERVICES = [
@@ -25,14 +27,20 @@ const POSTS = [
   {
     label:
       "Next.js 14 ile Yüksek Performanslı E-ticaret Siteleri Kurmanın Püf Noktaları",
-    href: "#",
+    href: "/blog/nextjs-14-performans",
   },
-  { label: "React Native mi, Native mi? Projeniz İçin Hangisi Doğru?", href: "#" },
+  {
+    label: "React Native mi, Native mi? Projeniz İçin Hangisi Doğru?",
+    href: "/blog/react-native-mi-native-mi",
+  },
   {
     label: "Google Antigravity ve Yapay Zeka ile Otomasyon Sistemleri",
-    href: "#",
+    href: "/blog/google-antigravity-yapay-zeka",
   },
-  { label: "Kullanıcı Deneyimini Artıran 3D Web Animasyonları", href: "#" },
+  {
+    label: "Kullanıcı Deneyimini Artıran 3D Web Animasyonları",
+    href: "/blog/3d-web-animasyonlari",
+  },
 ];
 
 const SOCIALS: { label: string; href?: string; icon: React.ReactNode }[] = [
@@ -186,9 +194,21 @@ export function Footer() {
           <div>
             <ColumnHeading>Site Haritası</ColumnHeading>
             <ul className="mt-5 flex flex-col gap-3">
-              {SITE_MAP.map((link) => (
-                <FooterLink key={link.label} href={link.href} label={link.label} />
-              ))}
+              {SITE_MAP.map((link) =>
+                link.href ? (
+                  <FooterLink key={link.label} href={link.href} label={link.label} />
+                ) : (
+                  <li key={link.label}>
+                    <button
+                      type="button"
+                      onClick={open}
+                      className="group inline-flex items-start gap-1.5 py-1 text-sm leading-relaxed text-slate-600 transition-all duration-200 hover:translate-x-1 hover:text-black"
+                    >
+                      <span>{link.label}</span>
+                    </button>
+                  </li>
+                ),
+              )}
             </ul>
           </div>
 
@@ -207,13 +227,13 @@ export function Footer() {
             <ColumnHeading>Popüler Yazılar</ColumnHeading>
             <ul className="mt-5 flex flex-col gap-4">
               {POSTS.map((post) => (
-                <li key={post.label}>
-                  <a
+                <li key={post.href}>
+                  <Link
                     href={post.href}
                     className="group block py-1 text-sm leading-snug text-slate-600 transition-all duration-200 hover:translate-x-1 hover:text-black"
                   >
                     {post.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

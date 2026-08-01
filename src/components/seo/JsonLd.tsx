@@ -11,9 +11,13 @@ import { geoFaq } from "@/lib/geo-faq";
  * data ile görünür içerik arasında sapma oluşamaz.
  *
  * Yalnızca doğrulanabilir bilgiler yer alır: marka adı, site adresi, açıklama,
- * gerçek sosyal hesaplar, mevcut iletişim numarası ve sayfada görünen hizmet
- * ile SSS metinleri. Fiyat, teklif, puan, değerlendirme, müşteri sayısı, adres
- * veya kuruluş tarihi gibi sitede görünmeyen alanlar bilinçli olarak yoktur.
+ * mevcut iletişim numarası ve sayfada görünen hizmet ile SSS metinleri. Fiyat,
+ * teklif, puan, değerlendirme, müşteri sayısı, adres veya kuruluş tarihi gibi
+ * sitede görünmeyen alanlar bilinçli olarak yoktur.
+ *
+ * Organization içinde `sameAs` yoktur: alt bilgideki Instagram ve LinkedIn
+ * adresleri kişisel profillerdir, kurumsal kimliği temsil etmez. `sameAs`
+ * yalnızca resmî kurumsal hesaplar için kullanılmalıdır.
  */
 
 /** JSON içinde `</script>` dizisinin HTML'i kapatmasını engeller. */
@@ -51,7 +55,6 @@ export function JsonLd() {
           height: siteConfig.logo.height,
         },
         telephone: siteConfig.phone,
-        sameAs: [siteConfig.social.instagram, siteConfig.social.linkedin],
       },
       {
         "@type": "WebSite",

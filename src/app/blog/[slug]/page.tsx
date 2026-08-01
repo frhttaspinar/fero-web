@@ -62,7 +62,9 @@ export default async function BlogPost({
     headline: post.title,
     description: post.excerpt,
     datePublished: post.isoDate,
-    dateModified: post.isoDate,
+    // İçerik esaslı biçimde güncellendiyse gerçek güncelleme tarihi kullanılır;
+    // aksi hâlde yayın tarihi korunur (sahte "güncellendi" sinyali üretilmez).
+    dateModified: post.modifiedIsoDate ?? post.isoDate,
     inLanguage: "tr-TR",
     url: canonicalUrl,
     mainEntityOfPage: {
@@ -118,9 +120,14 @@ export default async function BlogPost({
           <h1 className="text-3xl font-bold leading-tight tracking-tight text-foreground md:text-5xl">
             {post.title}
           </h1>
-          <time dateTime={post.isoDate} className="block text-sm text-muted-foreground">
-            {post.date}
-          </time>
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted-foreground">
+            <time dateTime={post.isoDate}>{post.date}</time>
+            {post.modifiedDate && post.modifiedIsoDate && (
+              <time dateTime={post.modifiedIsoDate}>
+                Güncellendi: {post.modifiedDate}
+              </time>
+            )}
+          </div>
         </header>
 
         <div className="text-lg leading-relaxed text-muted-foreground">

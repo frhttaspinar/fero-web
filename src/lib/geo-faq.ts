@@ -7,8 +7,9 @@
  *
  * Cevaplar yalnızca sitede görünen, doğrulanabilir bilgilere dayanır: hizmet
  * kartlarındaki açıklamalar ve teknoloji etiketleri, iletişim formunun
- * bildirdiği dönüş süresi ve alt bilgideki iletişim kanalları. Fiyat, teslim
- * süresi taahhüdü veya doğrulanamayan üstünlük iddiası içermez.
+ * bildirdiği dönüş süresi ve alt bilgideki iletişim kanalları. Yapay zekâ
+ * destekli geliştirme sorusu, stüdyonun beyan ettiği çalışma biçimini yansıtır.
+ * Fiyat, teslim süresi taahhüdü veya doğrulanamayan üstünlük iddiası içermez.
  */
 
 export type FaqEntry = {
@@ -30,7 +31,7 @@ export const geoFaq: FaqEntry[] = [
   {
     question: "Yapay zekâ çağrı asistanı ne yapar?",
     answer:
-      "Gelen telefon çağrılarını 7/24 doğal bir sesle karşılar. Sık sorulan soruları yanıtlar, randevu oluşturur ve CRM entegrasyonu üzerinden mevcut sistemlerle birlikte çalışabilir. Böylece mesai dışında veya yoğun saatlerde gelen çağrılar yanıtsız kalmaz.",
+      "Gelen telefon çağrılarını 7/24 doğal bir sesle karşılar. Sık sorulan soruları yanıtlar, randevu oluşturur ve CRM entegrasyonu üzerinden mevcut sistemlerle birlikte çalışabilir. Bu yapı, mesai dışındaki veya yoğun saatlerde gelen çağrıların karşılanmasına yardımcı olur.",
   },
   {
     question: "Web projelerinde hangi teknolojiler kullanılıyor?",
@@ -45,6 +46,12 @@ export const geoFaq: FaqEntry[] = [
   {
     question: "Doku Yazılım ile nasıl iletişime geçebilirim?",
     answer:
-      "En hızlı yol sitedeki iletişim formu: sayfanın üstündeki “Bize Ulaşın” ve alt bilgideki “Proje Başlat” düğmeleri aynı formu açar. Alternatif olarak alt bilgideki WhatsApp bağlantısından doğrudan mesaj gönderebilir, Instagram veya LinkedIn hesapları üzerinden de ulaşabilirsiniz. Form gönderimleri doğrudan e-posta kutusuna iletilir.",
+      "En hızlı yol sitedeki iletişim formu: sayfanın üstündeki “Bize Ulaşın” ve alt bilgideki “Proje Başlat” düğmeleri aynı formu açar. Alternatif olarak alt bilgideki WhatsApp bağlantısından doğrudan mesaj gönderebilir, Instagram veya LinkedIn hesapları üzerinden de ulaşabilirsiniz. Form gönderimleri iletişim e-posta kutusuna iletilir.",
+  },
+  {
+    question:
+      "Yazılım geliştirme sürecinde hangi yapay zekâ araçları kullanılıyor?",
+    answer:
+      "Doku Yazılım, projenin ve görevin ihtiyacına göre OpenAI Codex, Anthropic Claude ve Google Antigravity gibi yapay zekâ destekli geliştirme araçlarından yararlanır. Bu araçlar kod üretimi, kod inceleme, hata ayıklama, test senaryoları ve dokümantasyon süreçlerinde destek amacıyla kullanılır. Nihai kontroller, teknik kararlar ve yayın süreci insan denetiminde yürütülür.",
   },
 ];

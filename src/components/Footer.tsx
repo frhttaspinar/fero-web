@@ -37,7 +37,8 @@ const POSTS = [
     href: "/blog/react-native-mi-native-mi",
   },
   {
-    label: "Google Antigravity ve Yapay Zeka ile Otomasyon Sistemleri",
+    label:
+      "Codex, Claude ve Antigravity ile Yapay Zekâ Destekli Yazılım Geliştirme",
     href: "/blog/google-antigravity-yapay-zeka",
   },
   {

@@ -12,7 +12,7 @@ const LAST_CONTENT_UPDATE = new Date("2026-08-01");
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = Object.entries(blogPosts).map(([slug, post]) => ({
     url: absoluteUrl(`/blog/${slug}`),
-    lastModified: new Date(post.isoDate),
+    lastModified: new Date(post.modifiedIsoDate ?? post.isoDate),
     changeFrequency: "yearly" as const,
     priority: 0.5,
   }));

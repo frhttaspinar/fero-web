@@ -19,20 +19,24 @@ export async function generateMetadata({
 
   if (!post) return {};
 
+  // Arama sonucu başlığı kırpılmasın diye metadata'da kısa varyant kullanılır;
+  // sayfadaki H1, breadcrumb ve BlogPosting headline tam başlıkta kalır.
+  const metadataTitle = post.seoTitle ?? post.title;
+
   return {
-    title: post.title,
+    title: metadataTitle,
     description: post.excerpt,
     alternates: { canonical: `/blog/${slug}` },
     openGraph: {
       type: "article",
-      title: post.title,
+      title: metadataTitle,
       description: post.excerpt,
       url: `/blog/${slug}`,
       publishedTime: post.isoDate,
     },
     twitter: {
       card: "summary_large_image",
-      title: post.title,
+      title: metadataTitle,
       description: post.excerpt,
     },
   };

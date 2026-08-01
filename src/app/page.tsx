@@ -5,10 +5,12 @@ import { Services } from "@/components/services/Services";
 import { Projects } from "@/components/projects/Projects";
 import { Footer } from "@/components/Footer";
 import { ContactModalProvider } from "@/components/contact/ContactModalContext";
+import { JsonLd } from "@/components/seo/JsonLd";
 
 export default function Home() {
   return (
     <ContactModalProvider>
+      <JsonLd />
       <div id="top" className="flex flex-1 flex-col">
         <Header />
         <main className="flex-1">

@@ -3,6 +3,7 @@ import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { siteConfig } from "@/lib/site-config";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -25,31 +26,60 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
+// Sosyal paylaşım görselleri opengraph-image.tsx / twitter-image.tsx dosya
+// konvansiyonundan geliyor; Next bunları og:image ve twitter:image olarak
+// otomatik ekliyor, bu yüzden burada tekrar tanımlanmıyor.
 export const metadata: Metadata = {
-  title: "Ferhat Taşpınar — Yazılım Stüdyosu",
-  description:
-    "Mobil uygulama, e-ticaret altyapısı, kurumsal web ve yapay zeka destekli otomasyon çözümleri geliştiren yazılım stüdyosu.",
-  keywords: [
-    "yazılım geliştirme",
-    "React Native",
-    "mobil uygulama",
-    "e-ticaret",
-    "kurumsal web sitesi",
-    "otomasyon",
-    "Ferhat Taşpınar",
-  ],
-  authors: [{ name: "Ferhat Taşpınar" }],
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: siteConfig.title,
+    template: siteConfig.titleTemplate,
+  },
+  description: siteConfig.description,
+  keywords: [...siteConfig.keywords],
+  applicationName: siteConfig.name,
+  authors: [{ name: siteConfig.name, url: siteConfig.url }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
+  category: "technology",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "Ferhat Taşpınar — Yazılım Stüdyosu",
-    description:
-      "Mobil uygulama, e-ticaret, kurumsal web ve otomasyon çözümleri.",
-    locale: "tr_TR",
     type: "website",
+    locale: siteConfig.locale,
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    title: siteConfig.title,
+    description: siteConfig.description,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.title,
+    description: siteConfig.description,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  // `icon` / `shortcut` bilinçli olarak tanımlanmadı: src/app/favicon.ico
+  // dosya konvansiyonu bunları zaten üretiyor, tekrar tanımlamak <head>'de
+  // çift <link rel="icon"> oluşturuyordu. Apple touch icon için dosya
+  // konvansiyonu karşılığı olmadığından yalnızca o belirtiliyor.
+  icons: {
+    apple: "/logo-dk.png",
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#fafafa",
+  themeColor: siteConfig.themeColor,
   width: "device-width",
   initialScale: 1,
 };

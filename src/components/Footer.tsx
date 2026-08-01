@@ -1,19 +1,19 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { BrandLogo } from "./BrandLogo";
 import { useContactModal } from "./contact/ContactModalContext";
 
 const YEAR = new Date().getFullYear();
 
 const SITE_MAP: { label: string; href?: string }[] = [
-  { label: "Ana Sayfa", href: "#top" },
-  { label: "Hizmetler", href: "#hizmetler" },
-  { label: "Projeler", href: "#projeler" },
+  { label: "Ana Sayfa", href: "/#top" },
+  { label: "Hizmetler", href: "/#hizmetler" },
+  { label: "Projeler", href: "/#projeler" },
   // href yok: tıklanınca iletişim modalı açılır
   { label: "İletişim" },
-  { label: "Gizlilik Politikası", href: "/gizlilik-politikasi" },
+  { label: "Gizlilik Politikası", href: "/gizlilik" },
 ];
 
 const SERVICES = [
@@ -99,14 +99,22 @@ const SOCIALS: { label: string; href?: string; icon: React.ReactNode }[] = [
 ];
 
 function FooterLink({ href, label }: { href: string; label: string }) {
+  const className =
+    "group inline-flex items-start gap-1.5 py-1 text-sm leading-relaxed text-slate-600 transition-all duration-200 hover:translate-x-1 hover:text-black";
+
+  // Kök-göreli bağlantılar (route ve "/#bolum" hash'leri) next/link ile;
+  // footer alt sayfalarda da kullanıldığı için her ikisi de doğru çalışır.
   return (
     <li>
-      <a
-        href={href}
-        className="group inline-flex items-start gap-1.5 py-1 text-sm leading-relaxed text-slate-600 transition-all duration-200 hover:translate-x-1 hover:text-black"
-      >
-        <span>{label}</span>
-      </a>
+      {href.startsWith("/") ? (
+        <Link href={href} className={className}>
+          <span>{label}</span>
+        </Link>
+      ) : (
+        <a href={href} className={className}>
+          <span>{label}</span>
+        </a>
+      )}
     </li>
   );
 }
@@ -128,20 +136,11 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
           {/* 1 — Marka ve İletişim */}
           <div className="flex flex-col">
-            <Image
-              src="/logo-ft.png"
-              alt="Ferhat Taşpınar logo"
-              width={379}
-              height={420}
-              className="h-auto w-14 self-start object-contain drop-shadow-[0_2px_10px_rgba(0,0,0,0.15)]"
-            />
-            <span className="font-display mt-4 block text-lg font-semibold tracking-tight text-slate-900">
-              Ferhat Taşpınar
-            </span>
+            <BrandLogo height={72} className="self-start" />
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-slate-600">
-              Gelişmiş yapay zeka asistanlarından yüksek performanslı mobil
-              uygulamalara kadar kesintisiz dijital çözümler tasarlayan yazılım
-              stüdyosu.
+              Mobil uygulamalardan yüksek performanslı web sistemlerine,
+              e-ticaret altyapılarından yapay zekâ asistanlarına kadar uçtan uca
+              dijital çözümler geliştiriyoruz.
             </p>
 
             <ul className="mt-6 flex flex-col gap-3">
@@ -242,7 +241,7 @@ export function Footer() {
 
         {/* Alt Bar */}
         <div className="mt-16 flex flex-col gap-3 border-t border-line pt-8 text-xs text-ash sm:flex-row sm:items-center sm:justify-between">
-          <span>© {YEAR} Ferhat Taşpınar. Tüm hakları saklıdır.</span>
+          <span>© {YEAR} Doku Yazılım. Tüm hakları saklıdır.</span>
           <span className="font-mono tracking-wide">Türkiye</span>
         </div>
       </div>

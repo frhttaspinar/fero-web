@@ -1,6 +1,8 @@
-# Ferhat Taşpınar — Yazılım Stüdyosu
+# Doku Yazılım — Kurumsal Web Sitesi
 
-Next.js 16 + React Three Fiber ile kodlanmış, tek sayfalık portfolyo sitesi.
+Doku Yazılım; mobil uygulama, kurumsal web, e-ticaret, yapay zekâ asistanları
+ve özel otomasyon çözümleri geliştirir. Bu depo, markanın Next.js 16 + React
+Three Fiber ile kodlanmış tanıtım sitesini içerir.
 Hero bölümündeki 3D "çekirdek", hiçbir dış `.glb`/`.gltf` dosyası indirmeden
 saf prosedürel geometri ve custom GLSL shader ile üretiliyor — bu, dosya
 boyutu sıfır, yükleme anlık, 60fps garantili demek.
@@ -32,6 +34,38 @@ npm run dev
 
 Vercel'e deploy ederken aynı değişkeni **Project Settings → Environment
 Variables** kısmına eklemeyi unutma.
+
+### Site adresi ve kanonik domain
+
+Kanonik üretim domaini:
+
+```text
+https://www.dokuyazilim.com
+```
+
+Metadata, canonical URL, Open Graph / Twitter görselleri, `robots.txt`,
+`sitemap.xml`, `manifest.webmanifest` ve JSON-LD tek bir kaynaktan —
+`src/lib/site-config.ts` — beslenir. Adres şu sırayla belirlenir:
+
+1. `SITE_URL` environment değişkeni (tanımlıysa)
+2. Tanımlı değilse kodda gömülü üretim domaini `https://www.dokuyazilim.com`
+
+Üretim domaini varsayılan olduğu için **Vercel Production ortamında `SITE_URL`
+tanımlamaya gerek yoktur.** Bu değişken yalnızca preview/staging gibi farklı bir
+alan adı altında yayına alırken, canonical ve sitemap adreslerinin o alan adını
+göstermesi için kullanılır:
+
+```env
+SITE_URL=https://staging.dokuyazilim.com
+```
+
+Değer yalnızca sunucu tarafında okunur (metadata, robots, sitemap, manifest,
+JSON-LD, OG görseli); tarayıcıya sızmadığı için `NEXT_PUBLIC_` öneki
+gerekmez. Adresin sonuna `/` konulmasına gerek yoktur; site config sondaki
+eğik çizgiyi zaten temizler.
+
+> Not: `.gitignore` tüm `.env*` dosyalarını dışladığı için `.env.local.example`
+> depoya girmez; ortam değişkeni referansı olarak bu bölüm esas alınmalıdır.
 
 ### WhatsApp numarası
 

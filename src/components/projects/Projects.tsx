@@ -116,7 +116,7 @@ export function Projects() {
           </h2>
           <p className="mt-4 text-lg text-graphite">
             E-ticaret altyapılarından mobil uygulamalara, kurumsal web
-            sitelerinden yapay zeka asistanlarına — uçtan uca teslim ettiğim
+            sitelerinden yapay zekâ asistanlarına — uçtan uca teslim ettiğimiz
             projelerden bir seçki.
           </p>
         </div>

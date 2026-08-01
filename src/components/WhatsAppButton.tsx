@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const WHATSAPP_NUMBER = "905069060250";
 const WHATSAPP_MESSAGE = encodeURIComponent(
-  "Merhaba Ferhat, projemle ilgili konuşmak istiyorum."
+  "Merhaba, Doku Yazılım ile projem hakkında konuşmak istiyorum."
 );
 
 export function WhatsAppButton() {
@@ -13,7 +13,7 @@ export function WhatsAppButton() {
       href={`https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="WhatsApp üzerinden Ferhat Taşpınar ile iletişime geç"
+      aria-label="WhatsApp üzerinden Doku Yazılım ile iletişime geç"
       className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_8px_30px_rgba(37,211,102,0.4)] transition-colors hover:bg-[#128C7E] md:bottom-8 md:right-8"
       initial={{ opacity: 0, scale: 0.6, y: 20 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}

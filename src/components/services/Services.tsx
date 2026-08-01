@@ -77,7 +77,7 @@ const SERVICES: Service[] = [
   {
     title: "Dijital Pazarlama",
     description:
-      "Veriyle yönetilen reklam ve SEO çalışmaları; harcanan her bütçenin geri dönüşünü ölçüyorum.",
+      "Veriyle yönetilen reklam ve SEO çalışmaları; harcanan her bütçenin geri dönüşünü ölçüyoruz.",
     nodes: [
       { x: 50, y: 46, icon: TrendingUp, primary: true },
       { x: 27, y: 32, label: "SEO" },

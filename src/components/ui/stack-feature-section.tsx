@@ -46,7 +46,7 @@ export default function FeatureSection() {
           Tek Çatı Altında,<br/> Tüm Çözümleriniz
         </h2>
         <p className="text-muted-foreground mb-10 max-w-xl text-lg sm:text-xl leading-relaxed">
-          Web geliştirme, yüksek performanslı mobil uygulamalar, yapay zeka entegrasyonları ve otomasyon. Hepsi Diskyazılım standartlarında, özgün yapıda.
+          Web geliştirme, yüksek performanslı mobil uygulamalar, yapay zekâ entegrasyonları ve otomasyon. Hepsi Doku Yazılım standartlarında, markanıza özel ve ölçeklenebilir bir yapıda.
         </p>
         <div className="flex flex-wrap items-center gap-4">
           <motion.div

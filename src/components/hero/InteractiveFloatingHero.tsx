@@ -137,7 +137,7 @@ export default function InteractiveFloatingHero() {
     return (
         <FloatingIconsHero
             title="Dijitalin Zirvesine Ulaşın"
-            subtitle="Diskyazılım ile Modern, Ölçeklenebilir Web ve Mobil Çözümlerini Keşfedin. Markanızı Geleceğin Teknolojileriyle İnşa Ediyoruz."
+            subtitle="Doku Yazılım ile modern, hızlı ve ölçeklenebilir web, mobil uygulama, e-ticaret ve yapay zekâ çözümleri geliştirin. Markanızı geleceğin teknolojileriyle büyütün."
             ctaText="Projelerimizi İnceleyin"
             ctaHref="#projeler"
             icons={demoIcons}

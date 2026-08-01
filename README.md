@@ -72,6 +72,20 @@ eğik çizgiyi zaten temizler.
 `src/components/WhatsAppButton.tsx` ve `src/components/Footer.tsx` içindeki
 `905069060250` numarasını güncellersen tüm WhatsApp bağlantıları değişir.
 
+### GEO (generatif arama) yaklaşımı — teknik karar
+
+Generatif arama sistemleri için ayrı bir `llms.txt` veya `ai.txt` dosyası
+kullanılmadı. Bunun yerine taranabilirlik, görünür içerik ve bu içerikle birebir
+eşleşen yapısal veri tercih edildi:
+
+- `robots.ts` içinde genel izin korunuyor; `OAI-SearchBot` için ayrıca açık bir
+  izin satırı var. Diğer ajanlar (GPTBot dâhil) `*` kuralına tabi.
+- Hizmet metinleri `src/lib/service-catalog.ts`, SSS içeriği
+  `src/lib/geo-faq.ts` içinde tek kaynakta tutuluyor; hem sayfada görünen metin
+  hem de JSON-LD aynı yerden okuyor.
+- Ana sayfada Organization, WebSite, WebPage, hizmet `ItemList` ve `FAQPage`;
+  blog yazılarında `BlogPosting` ve `BreadcrumbList` üretiliyor.
+
 ## Performans notları
 
 - 3D sahne `next/dynamic` ile `ssr:false` olarak yükleniyor, hero metni ve

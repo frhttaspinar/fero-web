@@ -10,8 +10,12 @@ export type BlogPost = {
   /** Metadata açıklaması için düz metin özet. */
   excerpt: string;
   date: string;
-  /** ISO tarih — sitemap lastModified için. */
+  /** ISO tarih — yayın tarihi (datePublished). */
   isoDate: string;
+  /** İçerik esaslı biçimde güncellendiyse görünen güncelleme tarihi. */
+  modifiedDate?: string;
+  /** ISO güncelleme tarihi — dateModified ve sitemap lastModified için. */
+  modifiedIsoDate?: string;
   content: React.ReactNode;
 };
 
@@ -51,21 +55,66 @@ export const blogPosts: Record<string, BlogPost> = {
     ),
   },
   "google-antigravity-yapay-zeka": {
-    title: "Google Antigravity ve Yapay Zeka İle Otomasyon Sistemleri",
+    title:
+      "Codex, Claude ve Antigravity ile Yapay Zekâ Destekli Yazılım Geliştirme",
     excerpt:
-      "Kod üretiminden hata ayıklamaya, test senaryolarından arayüz iyileştirmelerine kadar geliştirme sürecini yapay zeka ile otomatikleştirme yaklaşımımız.",
+      "Kod üretimi, kod inceleme, hata ayıklama, test senaryoları ve dokümantasyon süreçlerinde Codex, Claude ve Google Antigravity’nin görev odaklı kullanımı.",
     date: "03 Temmuz 2026",
     isoDate: "2026-07-03",
+    modifiedDate: "1 Ağustos 2026",
+    modifiedIsoDate: "2026-08-01",
     content: (
-      <p>
-        Uygulama ve web sitesi geliştirme süreçlerimizde Google Antigravity
-        kullanmak, iş akışımızı inanılmaz bir seviyeye taşıyor. Özellikle
-        Antigravity ajanı olarak Gemini 3.1 Pro entegrasyonu sayesinde; kod
-        üretiminden hata ayıklamaya, test senaryolarının oluşturulmasından UI
-        iyileştirmelerine kadar birçok adımı otomatize ediyoruz. Bu yapay zeka
-        destekli yaklaşım, müşterilerimize daha hızlı ve hatasız projeler teslim
-        etmemizi sağlıyor.
-      </p>
+      <div className="space-y-6">
+        <p>
+          Doku Yazılım&apos;da yapay zekâ destekli geliştirme tek bir araca
+          bağlı yürütülmüyor. Projenin ihtiyacına ve elimizdeki görevin
+          niteliğine göre OpenAI Codex, Anthropic Claude ve Google Antigravity
+          farklı adımlarda yardımcı araç olarak kullanılıyor. Buradaki amaç
+          geliştirmeyi devretmek değil; tekrar eden işleri hızlandırmak ve
+          gözden kaçabilecek noktalar için ikinci bir bakış açısı elde etmek.
+        </p>
+
+        <h2 className="text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
+          Tek araç yerine görev odaklı çalışma
+        </h2>
+
+        <p>
+          Kod üretimi, mevcut kodun incelenmesi, hata ayıklama, refactor
+          planlama, test senaryolarının çıkarılması ve dokümantasyon gibi
+          işlerde bu araçlardan destek alıyoruz. Hangi aracın kullanılacağı
+          görevin kapsamına ve ihtiyaç duyulan inceleme biçimine göre
+          belirleniyor: kimi işte kısa ve odaklı bir düzenleme yeterli olurken,
+          kimi işte kod tabanının bütününü kapsayan daha geniş bir inceleme
+          gerekiyor.
+        </p>
+
+        <p>
+          Bu yaklaşımın pratik faydası, her aracı kendi güçlü olduğu yerde
+          kullanabilmek. Tek bir araca bağlı kalmak yerine görevi araca göre
+          seçtiğimizde, çıkan öneriyi değerlendirme sorumluluğu da bizde
+          kalıyor — üretilen her değişiklik, üzerine düşünülmesi gereken bir
+          taslak olarak ele alınıyor.
+        </p>
+
+        <h2 className="text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
+          İnsan denetimi ve kontrollü yayın
+        </h2>
+
+        <p>
+          Yapay zekâ tarafından önerilen değişiklikler doğrudan
+          production&apos;a gönderilmiyor. Değişiklikler ayrı Git
+          branch&apos;lerinde uygulanıyor, lint ve build kontrollerinden
+          geçiriliyor, Preview ortamında canlıya benzer koşullarda gözden
+          geçiriliyor. Ancak bu adımlar tamamlandıktan sonra yayın gündeme
+          geliyor.
+        </p>
+
+        <p>
+          Nihai kod incelemesi, test, güvenlik kontrolü ve production kararı her
+          durumda insan denetiminde. Yapay zekâ araçları süreci hızlandıran bir
+          yardımcı; teknik kararın ve sorumluluğun sahibi değil.
+        </p>
+      </div>
     ),
   },
   "3d-web-animasyonlari": {

@@ -12,6 +12,7 @@ import {
   CreditCard,
 } from "lucide-react";
 import { ServiceCard, type Service } from "./ServiceCard";
+import { serviceCopy } from "@/lib/service-catalog";
 import { GlowOrb } from "../GlowOrb";
 
 // Bento layout: phones stack one column, tablets (sm) run two columns with the
@@ -23,9 +24,7 @@ import { GlowOrb } from "../GlowOrb";
 // positioned in percent, `links` draw dashed connectors between them.
 const SERVICES: Service[] = [
   {
-    title: "Web Geliştirme",
-    description:
-      "Hızlı, erişilebilir ve arama motorlarına hazır modern web uygulamaları. Next.js ile ölçeklenen, bakımı kolay bir kod tabanı.",
+    ...serviceCopy("web-gelistirme"),
     className: "sm:col-span-2",
     nodes: [
       { x: 50, y: 46, logo: "nextjs", primary: true },
@@ -35,9 +34,7 @@ const SERVICES: Service[] = [
     ],
   },
   {
-    title: "Mobil Uygulama Geliştirme",
-    description:
-      "iOS ve Android'de tek kod tabanıyla akıcı, yüksek etkileşimli uygulamalar.",
+    ...serviceCopy("mobil-uygulama-gelistirme"),
     nodes: [
       { x: 50, y: 46, icon: Smartphone, primary: true },
       { x: 26, y: 32, logo: "react" },
@@ -45,9 +42,7 @@ const SERVICES: Service[] = [
     ],
   },
   {
-    title: "UI/UX Tasarım",
-    description:
-      "Kullanıcıyı yormayan, dönüşümü artıran arayüzler. Araştırmadan prototipe uçtan uca tasarım.",
+    ...serviceCopy("ui-ux-tasarim"),
     nodes: [
       { x: 50, y: 46, icon: PenTool, primary: true },
       { x: 27, y: 62, swatch: true },
@@ -55,9 +50,7 @@ const SERVICES: Service[] = [
     ],
   },
   {
-    title: "Yapay Zeka Çağrı Asistanı",
-    description:
-      "Gelen çağrıları 7/24 doğal bir sesle karşılayan, randevu oluşturan ve sık sorulan soruları yanıtlayan yapay zeka telefon asistanı.",
+    ...serviceCopy("yapay-zeka-cagri-asistani"),
     featured: true,
     className: "sm:col-span-2",
     nodes: [
@@ -75,9 +68,7 @@ const SERVICES: Service[] = [
     ],
   },
   {
-    title: "Dijital Pazarlama",
-    description:
-      "Veriyle yönetilen reklam ve SEO çalışmaları; harcanan her bütçenin geri dönüşünü ölçüyoruz.",
+    ...serviceCopy("dijital-pazarlama"),
     nodes: [
       { x: 50, y: 46, icon: TrendingUp, primary: true },
       { x: 27, y: 32, label: "SEO" },
@@ -85,9 +76,7 @@ const SERVICES: Service[] = [
     ],
   },
   {
-    title: "Otomasyon Geliştirme",
-    description:
-      "Tekrar eden işleri ortadan kaldıran özel entegrasyonlar ve iş akışları.",
+    ...serviceCopy("otomasyon-gelistirme"),
     nodes: [
       { x: 50, y: 46, icon: Workflow, primary: true },
       { x: 26, y: 63, label: "API" },
@@ -99,9 +88,7 @@ const SERVICES: Service[] = [
     ],
   },
   {
-    title: "E-Ticaret Siteleri",
-    description:
-      "Sıfırdan kurulan, hızlı ve KVKK uyumlu satış siteleri; ödemeden kargoya tam entegre.",
+    ...serviceCopy("e-ticaret-siteleri"),
     nodes: [
       { x: 50, y: 46, icon: ShoppingBag, primary: true },
       { x: 26, y: 32, icon: CreditCard },

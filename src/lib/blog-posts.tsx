@@ -7,6 +7,12 @@
 
 export type BlogPost = {
   title: string;
+  /**
+   * Yalnızca HTML/OG/Twitter metadata başlığı için kısa varyant. Arama sonucu
+   * başlıklarının kırpılmaması için kullanılır; görünür H1, breadcrumb, footer
+   * etiketi ve BlogPosting headline her zaman `title` alanından gelir.
+   */
+  seoTitle?: string;
   /** Metadata açıklaması için düz metin özet. */
   excerpt: string;
   date: string;
@@ -23,6 +29,7 @@ export const blogPosts: Record<string, BlogPost> = {
   "nextjs-14-performans": {
     title:
       "Next.js 14 ile Yüksek Performanslı E-ticaret Siteleri Kurmanın Püf Noktaları",
+    seoTitle: "Next.js 14 ile E-Ticaret Performansı",
     excerpt:
       "App Router ve Turbopack ile sunucu taraflı render'ı optimize ederek e-ticaret sitelerinde SEO ve kullanıcı deneyimini birlikte yükseltme yöntemleri.",
     date: "25 Temmuz 2026",
@@ -39,6 +46,7 @@ export const blogPosts: Record<string, BlogPost> = {
   },
   "react-native-mi-native-mi": {
     title: "React Native mi, Native mi? Projeniz İçin Hangisi Doğru?",
+    seoTitle: "React Native mi, Native mi?",
     excerpt:
       "Çapraz platform ve yerel geliştirme arasındaki farklar, Expo ekosisteminin katkısı ve projenize uygun teknoloji yığınını seçme kriterleri.",
     date: "12 Temmuz 2026",
@@ -57,6 +65,7 @@ export const blogPosts: Record<string, BlogPost> = {
   "google-antigravity-yapay-zeka": {
     title:
       "Codex, Claude ve Antigravity ile Yapay Zekâ Destekli Yazılım Geliştirme",
+    seoTitle: "Codex, Claude ve Antigravity ile Geliştirme",
     excerpt:
       "Kod üretimi, kod inceleme, hata ayıklama, test senaryoları ve dokümantasyon süreçlerinde Codex, Claude ve Google Antigravity’nin görev odaklı kullanımı.",
     date: "03 Temmuz 2026",
@@ -119,6 +128,7 @@ export const blogPosts: Record<string, BlogPost> = {
   },
   "3d-web-animasyonlari": {
     title: "Kullanıcı Deneyimini Artıran 3D Web Animasyonları",
+    seoTitle: "3D Web Animasyonları ve Kullanıcı Deneyimi",
     excerpt:
       "Framer Motion ve WebGL ile 60fps akıcılığında, kullanıcıyı yormayan fizik tabanlı web animasyonları kurgulamanın temelleri.",
     date: "20 Haziran 2026",

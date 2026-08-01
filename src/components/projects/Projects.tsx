@@ -8,7 +8,8 @@ import { ProjectCard, type Project } from "./ProjectCard";
 // web sites render wide and mobile-app captures render as portrait frames —
 // the masonry layout below absorbs the mixed heights. Backend/AI/tooling work
 // with no marketing UI uses a branded gradient tile with an icon instead.
-// `link` is the live site; "#" is a placeholder until the real URL is filled.
+// `link` yalnızca gerçek bir canlı site adresi verildiğinde tanımlanır; adres
+// yoksa alan hiç yazılmaz ve kartta bağlantı katmanı render edilmez.
 const PROJECTS: Project[] = [
   {
     title: "E-Ticaret",
@@ -17,7 +18,6 @@ const PROJECTS: Project[] = [
       "Mobilya ve dekorasyon ürünleri için PayTR entegrasyonlu, yüksek dönüşümlü e-ticaret altyapısı.",
     image: "/refe/deco.png",
     ratio: "1919 / 882",
-    link: "#",
   },
   {
     title: "Mobil Uygulama",
@@ -26,7 +26,6 @@ const PROJECTS: Project[] = [
       "React Native ve Expo ile geliştirilen; numeroloji analizi, sesli sohbet ve kredili kullanım sunan yaşam tarzı uygulaması.",
     image: "/refe/mobil.png",
     ratio: "1242 / 2688",
-    link: "#",
   },
   {
     title: "Atelier Mermer Studio",
@@ -35,7 +34,6 @@ const PROJECTS: Project[] = [
       "El işçiliği mermer atölyesi için sanat ve zanaatı dijitale taşıyan, modern ve rustik esintili marka vitrini.",
     image: "/refe/atelier.png",
     ratio: "1920 / 879",
-    link: "#",
   },
   {
     title: "Yaşam Tarzı",
@@ -44,7 +42,6 @@ const PROJECTS: Project[] = [
       "Diyetisyen için kişiye özel beslenme programları ve online randevuyu öne çıkaran kişisel marka sitesi.",
     image: "/refe/yasam.png",
     ratio: "635 / 348",
-    link: "#",
   },
   {
     title: "Mühendislik",
@@ -53,7 +50,6 @@ const PROJECTS: Project[] = [
       "Harita mühendisliği firması için ölçüm, imar ve kadastro hizmetlerini tanıtan kurumsal web sitesi.",
     image: "/refe/harita.png",
     ratio: "425 / 491",
-    link: "#",
   },
   {
     title: "Moda Butik",
@@ -62,7 +58,6 @@ const PROJECTS: Project[] = [
       "Moda markası için zamansız koleksiyonları premium bir alışveriş deneyimiyle sunan butik e-ticaret vitrini.",
     image: "/refe/moda.png",
     ratio: "491 / 333",
-    link: "#",
   },
   {
     title: "Kurumsal Tanıtım",
@@ -71,7 +66,6 @@ const PROJECTS: Project[] = [
       "Hukuk ve danışmanlık bürosu için faaliyet alanlarını ve iletişimi öne çıkaran prestijli kurumsal tanıtım sitesi.",
     image: "/refe/ova.png",
     ratio: "1920 / 879",
-    link: "#",
   },
   {
     title: "Yapay Zeka Asistanı",
@@ -80,7 +74,6 @@ const PROJECTS: Project[] = [
       "Gemini Pro Live altyapısıyla geliştirilmiş, sıfır gecikmeli akıllı asistan entegrasyonu.",
     image: "/refe/yz.jpeg",
     ratio: "736 / 1104",
-    link: "#",
   },
   {
     title: "Mühendislik Firması",
@@ -89,7 +82,6 @@ const PROJECTS: Project[] = [
       "Jeoloji mühendisliği firması için zemin etüdü, analiz ve danışmanlık hizmetlerini öne çıkaran kurumsal web sitesi.",
     image: "/refe/mühendislik.png",
     ratio: "427 / 489",
-    link: "#",
   },
   {
     title: "Mobil Uygulama - Asistan",
@@ -98,7 +90,6 @@ const PROJECTS: Project[] = [
       "Araç sahipleri için arıza teşhisi, maliyet tahmini ve sesli usta asistanı sunan yapay zeka destekli mobil uygulama.",
     image: "/refe/mobilusta.png",
     ratio: "1206 / 2484",
-    link: "#",
   },
 ];
 

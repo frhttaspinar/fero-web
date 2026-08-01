@@ -15,7 +15,10 @@ export type Project = {
   icon?: LucideIcon;
   /** Tailwind gradient stops for the gradient variant, e.g. "from-signal to-violet". */
   accent?: string;
-  /** Live site URL; when set, a "Projeyi İncele" overlay appears on hover. */
+  /**
+   * Canlı site adresi. Yalnızca gerçek bir http(s) adresi verildiğinde
+   * "Projeyi İncele" katmanı görünür; adres yoksa kart bağlantısız kalır.
+   */
   link?: string;
   /**
    * CSS aspect-ratio of the showcase area, matching the screenshot's natural
@@ -27,6 +30,12 @@ export type Project = {
 
 export function ProjectCard({ project, index }: { project: Project; index: number }) {
   const Icon = project.icon;
+
+  // Yalnızca gerçek bir dış adres bağlantı olarak render edilir. "#" gibi yer
+  // tutucu değerler hiçbir yere gitmeyen, yeni sekmede açılan kırık bir
+  // bağlantı ürettiği için elenir.
+  const liveUrl =
+    project.link && /^https?:\/\//i.test(project.link) ? project.link : undefined;
 
   return (
     <motion.div
@@ -86,9 +95,9 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
           {/* On hover-capable devices the overlay reveals on hover; on touch
               devices (hover: none) it stays visible — otherwise the link would
               be unreachable, since a tap can't trigger :hover reliably. */}
-          {project.link && (
+          {liveUrl && (
             <a
-              href={project.link}
+              href={liveUrl}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`${project.title} — canlı siteye git`}

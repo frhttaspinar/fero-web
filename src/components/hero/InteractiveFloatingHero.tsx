@@ -136,6 +136,7 @@ const demoIcons: FloatingIconsHeroProps['icons'] = [
 export default function InteractiveFloatingHero() {
     return (
         <FloatingIconsHero
+            id="hero"
             title="Doku Yazılım ile Dijital Çözümler"
             subtitle="Doku Yazılım ile modern, hızlı ve ölçeklenebilir web, mobil uygulama, e-ticaret ve yapay zekâ çözümleri geliştirin. Markanızı geleceğin teknolojileriyle büyütün."
             ctaText="Projelerimizi İnceleyin"

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { BrandLogo } from "./BrandLogo";
 import { useContactModal } from "./contact/ContactModalContext";
+import { siteConfig } from "@/lib/site-config";
 
 const YEAR = new Date().getFullYear();
 
@@ -17,10 +18,12 @@ const SITE_MAP: { label: string; href?: string }[] = [
 ];
 
 const SERVICES = [
-  { label: "Mobil Uygulama Çözümleri", href: "#hizmetler" },
-  { label: "E-Ticaret Altyapıları", href: "#hizmetler" },
-  { label: "Kurumsal Web Sistemleri", href: "#hizmetler" },
-  { label: "Yapay Zeka Otomasyonları", href: "#hizmetler" },
+  // Kök-göreli hash: footer alt sayfalarda da kullanıldığı için bağlantılar
+  // ana sayfadaki Hizmetler bölümüne her koşulda ulaşır.
+  { label: "Mobil Uygulama Çözümleri", href: "/#hizmetler" },
+  { label: "E-Ticaret Altyapıları", href: "/#hizmetler" },
+  { label: "Kurumsal Web Sistemleri", href: "/#hizmetler" },
+  { label: "Yapay Zeka Otomasyonları", href: "/#hizmetler" },
 ];
 
 const POSTS = [
@@ -43,10 +46,16 @@ const POSTS = [
   },
 ];
 
-const SOCIALS: { label: string; href?: string; icon: React.ReactNode }[] = [
+const SOCIALS: {
+  label: string;
+  href?: string;
+  /** Görünen metinden daha açıklayıcı bir erişilebilir ad gerektiğinde. */
+  ariaLabel?: string;
+  icon: React.ReactNode;
+}[] = [
   {
     label: "Instagram",
-    href: "https://www.instagram.com/ferotaspinar/",
+    href: siteConfig.social.instagram,
     icon: (
       <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4" aria-hidden="true">
         <rect
@@ -60,6 +69,39 @@ const SOCIALS: { label: string; href?: string; icon: React.ReactNode }[] = [
         />
         <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.6" />
         <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" />
+      </svg>
+    ),
+  },
+  {
+    label: "LinkedIn",
+    href: siteConfig.social.linkedin,
+    ariaLabel: "Ferhat Taşpınar LinkedIn profilini aç",
+    // Instagram ve e-posta ikonlarıyla aynı 1.6 çizgi kalınlığında outline SVG.
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4" aria-hidden="true">
+        <rect
+          x="2.5"
+          y="2.5"
+          width="19"
+          height="19"
+          rx="4"
+          stroke="currentColor"
+          strokeWidth="1.6"
+        />
+        <path
+          d="M7.6 10.6v6.6"
+          stroke="currentColor"
+          strokeWidth="1.6"
+          strokeLinecap="round"
+        />
+        <circle cx="7.6" cy="7.3" r="1.15" fill="currentColor" />
+        <path
+          d="M11.6 17.2v-6.6m0 2.8c0-1.6 1.2-2.6 2.7-2.6s2.4 1.1 2.4 2.8v3.6"
+          stroke="currentColor"
+          strokeWidth="1.6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
       </svg>
     ),
   },
@@ -166,6 +208,7 @@ export function Footer() {
                             ? "noopener noreferrer"
                             : undefined
                         }
+                        aria-label={social.ariaLabel}
                         className={linkClasses}
                       >
                         {content}

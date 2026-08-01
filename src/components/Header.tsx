@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { BrandLogo } from "./BrandLogo";
 import { useContactModal } from "./contact/ContactModalContext";
+import { lenisStore, smoothScrollTo } from "@/lib/lenisStore";
 
 // Kök-göreli hash: header alt sayfalarda da kullanıldığı için bağlantılar
 // ana sayfadaki bölümlere her koşulda ulaşır.
@@ -17,6 +18,29 @@ const NAV_LINKS = [
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const { open } = useContactModal();
+
+  // Ana sayfadayken logo tıklaması hero bölümüne yumuşak döner. Lenis kendi
+  // rAF döngüsünü sürdürdüğü için native hash atlaması onunla çakışıyor;
+  // mevcut lenisStore örneği üzerinden kaydırıyoruz. Alt sayfalarda
+  // preventDefault çağrılmaz, Next Link normal navigasyonunu yapar.
+  const handleLogoClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    if (window.location.pathname !== "/") return;
+
+    event.preventDefault();
+
+    const hero = document.getElementById("hero");
+    if (hero) {
+      smoothScrollTo(hero);
+      return;
+    }
+
+    // Hero bulunamazsa güvenli fallback: sayfanın en üstü.
+    if (lenisStore.instance) {
+      lenisStore.instance.scrollTo(0);
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -36,7 +60,8 @@ export function Header() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
         {/* h-12 yuvası korundu; header yüksekliği ve mobil düzen değişmiyor. */}
         <Link
-          href="/#top"
+          href="/#hero"
+          onClick={handleLogoClick}
           className="flex h-12 items-center"
           aria-label="Doku Yazılım — Ana Sayfa"
         >
@@ -61,7 +86,7 @@ export function Header() {
           onClick={open}
           className="rounded-full bg-void px-5 py-3 text-xs font-medium uppercase tracking-[0.1em] text-paper transition hover:bg-ink"
         >
-          Bana Ulaşın
+          Bize Ulaşın
         </button>
       </div>
     </motion.header>

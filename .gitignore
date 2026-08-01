@@ -32,6 +32,10 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+# Örnek dosyalar istisna: yalnızca placeholder değer içerirler, gerçek
+# secret barındırmazlar ve kurulum referansı olarak depoda bulunmalıdırlar.
+!.env.example
+!.env.local.example
 
 # vercel
 .vercel

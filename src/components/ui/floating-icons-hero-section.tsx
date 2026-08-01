@@ -98,7 +98,11 @@ const Icon = ({
           rotate: [0, 5, 0, -5, 0],
         }}
         transition={{
-          duration: 5 + Math.random() * 5,
+          // Her ikon farklı hızda süzülsün diye süre index'ten türetiliyor.
+          // Önceki Math.random() render sırasında çağrıldığı için React saflık
+          // kuralını ihlal ediyor ve her yeniden render'da süreyi değiştiriyordu.
+          // Aralık (5–10 sn) ve görsel davranış aynı korundu.
+          duration: 5 + ((index * 2.7) % 5),
           repeat: Infinity,
           repeatType: 'mirror',
           ease: 'easeInOut',

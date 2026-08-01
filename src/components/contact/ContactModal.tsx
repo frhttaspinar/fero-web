@@ -124,10 +124,10 @@ export function ContactModal({
                   id="contact-modal-title"
                   className="font-display mt-2 text-3xl font-medium tracking-tight text-ink"
                 >
-                  Bana ulaş.
+                  Bize ulaş.
                 </h3>
                 <p className="mt-2 text-graphite">
-                  Projeni anlat, 24 saat içinde dönüş yapayım.
+                  Projeni anlat, 24 saat içinde dönüş yapalım.
                 </p>
 
                 <form onSubmit={handleSubmit} className="mt-8 space-y-4">
@@ -139,7 +139,7 @@ export function ContactModal({
                   <input
                     type="hidden"
                     name="subject"
-                    value="Yeni proje talebi — ferhattaspinar.dev"
+                    value="Yeni proje talebi — Doku Yazılım"
                   />
                   <input
                     type="checkbox"

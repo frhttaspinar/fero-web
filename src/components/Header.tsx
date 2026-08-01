@@ -1,14 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
+import { BrandLogo } from "./BrandLogo";
 import { useContactModal } from "./contact/ContactModalContext";
 
+// Kök-göreli hash: header alt sayfalarda da kullanıldığı için bağlantılar
+// ana sayfadaki bölümlere her koşulda ulaşır.
 const NAV_LINKS = [
-  { label: "Hizmetler", href: "#hizmetler" },
-  { label: "Projeler", href: "#projeler" },
-  { label: "İletişim", href: "#iletisim" },
+  { label: "Hizmetler", href: "/#hizmetler" },
+  { label: "Projeler", href: "/#projeler" },
+  { label: "İletişim", href: "/#iletisim" },
 ];
 
 export function Header() {
@@ -31,28 +34,26 @@ export function Header() {
         }`}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <a href="#top" className="flex items-center" aria-label="Ferhat Taşpınar — Ana Sayfa">
-          <Image
-            src="/logo-ft.png"
-            alt="Ferhat Taşpınar logo"
-            width={379}
-            height={420}
-            priority
-            className="h-12 w-auto drop-shadow-[0_2px_10px_rgba(0,0,0,0.15)]"
-          />
-        </a>
+        {/* h-12 yuvası korundu; header yüksekliği ve mobil düzen değişmiyor. */}
+        <Link
+          href="/#top"
+          className="flex h-12 items-center"
+          aria-label="Doku Yazılım — Ana Sayfa"
+        >
+          <BrandLogo height={44} priority />
+        </Link>
 
         {/* gap-4 + px-2 keeps the old visual rhythm (gap-8) while giving each
             link a comfortable touch target for tablets, where md: nav shows. */}
         <nav className="hidden items-center gap-4 md:flex">
           {NAV_LINKS.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               className="px-2 py-2.5 font-mono text-xs uppercase tracking-[0.15em] text-slate-900 transition hover:text-slate-600"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 

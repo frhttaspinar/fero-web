@@ -98,7 +98,11 @@ const Icon = ({
           rotate: [0, 5, 0, -5, 0],
         }}
         transition={{
-          duration: 5 + Math.random() * 5,
+          // Her ikon farklı hızda süzülsün diye süre index'ten türetiliyor.
+          // Önceki Math.random() render sırasında çağrıldığı için React saflık
+          // kuralını ihlal ediyor ve her yeniden render'da süreyi değiştiriyordu.
+          // Aralık (5–10 sn) ve görsel davranış aynı korundu.
+          duration: 5 + ((index * 2.7) % 5),
           repeat: Infinity,
           repeatType: 'mirror',
           ease: 'easeInOut',
@@ -148,7 +152,7 @@ const FloatingIconsHero = React.forwardRef<
 
       {/* Container for the foreground content */}
       <div className="relative z-10 text-center px-4">
-        <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-foreground">
+        <h1 className="text-5xl md:text-7xl font-bold uppercase tracking-tight text-foreground">
           {title}
         </h1>
         <p className="mt-6 max-w-xl mx-auto text-lg text-muted-foreground">

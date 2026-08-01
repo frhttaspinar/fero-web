@@ -17,10 +17,12 @@ const SITE_MAP: { label: string; href?: string }[] = [
 ];
 
 const SERVICES = [
-  { label: "Mobil Uygulama Çözümleri", href: "#hizmetler" },
-  { label: "E-Ticaret Altyapıları", href: "#hizmetler" },
-  { label: "Kurumsal Web Sistemleri", href: "#hizmetler" },
-  { label: "Yapay Zeka Otomasyonları", href: "#hizmetler" },
+  // Kök-göreli hash: footer alt sayfalarda da kullanıldığı için bağlantılar
+  // ana sayfadaki Hizmetler bölümüne her koşulda ulaşır.
+  { label: "Mobil Uygulama Çözümleri", href: "/#hizmetler" },
+  { label: "E-Ticaret Altyapıları", href: "/#hizmetler" },
+  { label: "Kurumsal Web Sistemleri", href: "/#hizmetler" },
+  { label: "Yapay Zeka Otomasyonları", href: "/#hizmetler" },
 ];
 
 const POSTS = [

@@ -61,7 +61,7 @@ export function Header() {
           onClick={open}
           className="rounded-full bg-void px-5 py-3 text-xs font-medium uppercase tracking-[0.1em] text-paper transition hover:bg-ink"
         >
-          Bana Ulaşın
+          Bize Ulaşın
         </button>
       </div>
     </motion.header>

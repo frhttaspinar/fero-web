@@ -33,7 +33,7 @@ export function JsonLd() {
           height: siteConfig.logo.height,
         },
         telephone: siteConfig.phone,
-        sameAs: [siteConfig.social.instagram],
+        sameAs: [siteConfig.social.instagram, siteConfig.social.linkedin],
       },
       {
         "@type": "WebSite",

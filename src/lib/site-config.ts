@@ -61,6 +61,8 @@ export const siteConfig = {
   /** Yalnızca gerçekten var olan hesaplar. */
   social: {
     instagram: "https://www.instagram.com/ferotaspinar/",
+    linkedin:
+      "https://www.linkedin.com/in/ferhat-ta%C5%9Fpinar-110814396/",
   },
   /** Uluslararası formatta iletişim numarası (WhatsApp hattıyla aynı). */
   phone: "+905069060250",

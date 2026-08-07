@@ -48,9 +48,9 @@ function Section({
 export default function AboutPage() {
   const canonicalUrl = absoluteUrl("/hakkimizda");
 
-  // AboutPage, ana sayfadaki graph'ta tanımlı Organization/ProfessionalService
-  // varlığına bağlanır; entity tekrarı yaratmamak için node yeniden
-  // tanımlanmaz, yalnızca @id ile referans verilir.
+  // AboutPage, ana sayfadaki graph'ta tanımlı LocalBusiness varlığına bağlanır;
+  // entity tekrarı yaratmamak için node yeniden tanımlanmaz, yalnızca @id ile
+  // referans verilir.
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "AboutPage",

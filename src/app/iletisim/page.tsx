@@ -47,8 +47,8 @@ function InfoRow({ label, children }: { label: string; children: React.ReactNode
 export default function ContactPage() {
   const canonicalUrl = absoluteUrl("/iletisim");
 
-  // ContactPage, ana sayfadaki graph'ta tanımlı Organization/ProfessionalService
-  // varlığına @id ile bağlanır; adres ve telefon orada tanımlı olduğu için
+  // ContactPage, ana sayfadaki graph'ta tanımlı LocalBusiness varlığına @id ile
+  // bağlanır; adres, telefon ve çalışma saatleri orada tanımlı olduğu için
   // burada tekrar edilmez, entity çiftlenmesi oluşmaz.
   const jsonLd = {
     "@context": "https://schema.org",

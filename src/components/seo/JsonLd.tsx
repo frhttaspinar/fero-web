@@ -5,23 +5,30 @@ import { geoFaq } from "@/lib/geo-faq";
 /**
  * Ana sayfa yapısal verisi.
  *
- * Tek bir @graph içinde Organization, WebSite, WebPage, hizmet ItemList'i ve
+ * Tek bir @graph içinde LocalBusiness, WebSite, WebPage, hizmet ItemList'i ve
  * FAQPage yer alır. Hizmet ve SSS metinleri sayfada görünen içerikle aynı
  * kaynaklardan (service-catalog.ts, geo-faq.ts) okunur; böylece structured
  * data ile görünür içerik arasında sapma oluşamaz.
+ *
+ * İşletme varlığı LocalBusiness tipindedir: Doku Yazılım'ın doğrulanmış bir
+ * fiziksel ofisi vardır. LocalBusiness, Organization'ın alt türüdür; @id
+ * (`/#organization`) değişmediği için sitedeki tüm mevcut varlık ilişkileri
+ * korunur ve ayrı bir işletme node'u oluşturulmaz.
  *
  * Yalnızca doğrulanabilir bilgiler yer alır: marka adı, site adresi, açıklama,
  * iletişim numarası, e-posta, gerçek fiziksel ofis adresi ve koordinatı, hizmet
  * kapsamı ile sayfada görünen hizmet ve SSS metinleri. Fiyat, teklif, puan,
  * değerlendirme, müşteri sayısı veya kuruluş tarihi gibi doğrulanmamış alanlar
- * bilinçli olarak yoktur.
+ * bilinçli olarak yoktur. GBP'deki gerçek yorumlar da buraya kopyalanmaz:
+ * Review/AggregateRating yalnızca sitenin kendi topladığı, doğrulanabilir
+ * değerlendirmeler için kullanılabilir.
  *
  * Konumlandırma kuralı: `areaServed` içinde ülke geneli (Türkiye) birincil
  * ticari kapsamdır, Amasya yalnızca fiziksel ofisin bulunduğu yerel bağlamdır.
  * Hizmet adlarına (`Service.name`) şehir eklenmez — bu, ulusal arama niyetini
  * yerel bir nişe daraltır.
  *
- * Organization içinde `sameAs` yoktur: alt bilgideki Instagram ve LinkedIn
+ * İşletme node'unda `sameAs` yoktur: alt bilgideki Instagram ve LinkedIn
  * adresleri kişisel profillerdir, kurumsal kimliği temsil etmez. `sameAs`
  * yalnızca resmî kurumsal hesaplar için kullanılmalıdır.
  */
@@ -49,12 +56,16 @@ export function JsonLd() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        // Tek node, iki tip: ProfessionalService, LocalBusiness'ın alt tipidir.
-        // Ayrı bir LocalBusiness node'u açmak yerine mevcut Organization tipi
-        // genişletildi; böylece @id sabit kalıyor ve Service.provider,
-        // WebSite.publisher, WebPage.about ile blog author/publisher
-        // referanslarının tamamı adres/telefon taşıyan aynı varlığa bağlanıyor.
-        "@type": ["Organization", "ProfessionalService"],
+        // Doku Yazılım'ın doğrulanmış bir fiziksel konumu olduğu için tip
+        // LocalBusiness. LocalBusiness zaten Organization'ın alt türü olduğundan
+        // ayrıca "Organization" yazmaya gerek yok — tek tip yeterli.
+        //
+        // Ayrı bir işletme node'u AÇILMAZ: @id sabit kaldığı sürece
+        // Service.provider, WebSite.publisher, WebPage.about ve blog
+        // author/publisher referanslarının tamamı adres, telefon ve çalışma
+        // saati taşıyan bu tek varlığa bağlı kalır. İkinci bir node graph'ı
+        // böler ve hizmetleri konumsuz bir varlığa bağlı bırakırdı.
+        "@type": "LocalBusiness",
         "@id": ORGANIZATION_ID,
         name: siteConfig.name,
         url: siteConfig.url,

@@ -81,6 +81,12 @@ export function JsonLd() {
           longitude: siteConfig.address.longitude,
         },
         hasMap: siteConfig.address.mapsUrl,
+        openingHoursSpecification: {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: [...siteConfig.openingHours.days],
+          opens: siteConfig.openingHours.opens,
+          closes: siteConfig.openingHours.closes,
+        },
         // Sıra bilinçli: ülke geneli ticari kapsam, Amasya fiziksel bağlam.
         areaServed: siteConfig.areaServed.map((area) => ({
           "@type": area.type,

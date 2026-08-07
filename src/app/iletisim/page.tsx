@@ -129,10 +129,11 @@ export default function ContactPage() {
                 </a>
               </InfoRow>
 
-              <InfoRow label="İletişim">
+              <InfoRow label="Çalışma Saatleri">
                 7/24
                 <span className="mt-1 block text-base text-muted-foreground">
-                  Mesajlarınıza 24 saat içinde dönüş yapılır.
+                  Her gün 24 saat ulaşabilirsiniz; mesajlarınıza 24 saat içinde
+                  dönüş yapılır.
                 </span>
               </InfoRow>
             </dl>

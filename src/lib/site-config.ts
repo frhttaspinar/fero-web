@@ -103,6 +103,27 @@ export const siteConfig = {
     mapsUrl: "https://maps.google.com/?cid=6684633581312182868",
   },
   /**
+   * Çalışma saatleri: 7/24 (işletme sahibinin doğrudan kararı).
+   *
+   * schema.org'da "24 saat açık" karşılığı opens "00:00" / closes "23:59"
+   * biçimidir. Bu değer Google Business Profile kaydıyla aynı tutulmalıdır;
+   * GBP'de farklı saat girilirse iki kaynak çelişir ve yerel doğruluk sinyali
+   * zayıflar.
+   */
+  openingHours: {
+    days: [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday",
+    ],
+    opens: "00:00",
+    closes: "23:59",
+  },
+  /**
    * Hizmet kapsamı. Sıra anlamlıdır: ülke geneli birincil ticari pazar,
    * Amasya yalnızca fiziksel ofisin bulunduğu yerel bağlamdır.
    */

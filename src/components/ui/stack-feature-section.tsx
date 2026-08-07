@@ -45,8 +45,16 @@ export default function FeatureSection() {
         <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 text-foreground tracking-tight leading-tight">
           Tek Çatı Altında,<br/> Tüm Çözümleriniz
         </h2>
-        <p className="text-muted-foreground mb-10 max-w-xl text-lg sm:text-xl leading-relaxed">
+        <p className="text-muted-foreground mb-6 max-w-xl text-lg sm:text-xl leading-relaxed">
           Web geliştirme, yüksek performanslı mobil uygulamalar, yapay zekâ entegrasyonları ve otomasyon. Hepsi Doku Yazılım standartlarında, markanıza özel ve ölçeklenebilir bir yapıda.
+        </p>
+        {/* İşletme kimliğini doğrulayan konum satırı. Vurgu bilinçli olarak
+            ülke genelinde: Amasya ikincil bilgi olarak, ofisin fiziksel yeri
+            olarak geçiyor — hizmet/pazar tanımı olarak değil. */}
+        <p className="text-muted-foreground mb-10 max-w-xl text-base leading-relaxed">
+          Doku Yazılım, Türkiye genelindeki işletmeler ve projeler için çalışır.
+          Fiziksel ofisimiz Amasya Merkez&apos;de bulunur; Türkiye&apos;nin her
+          yerindeki projeler uzaktan yürütülebilir.
         </p>
         <div className="flex flex-wrap items-center gap-4">
           <motion.div

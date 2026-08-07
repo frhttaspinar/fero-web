@@ -1,8 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { siteConfig } from "@/lib/site-config";
 
-const WHATSAPP_NUMBER = "905069060250";
+// Numara siteConfig'ten okunur: NAP tutarlılığı için telefonun tek kaynağı var.
+const WHATSAPP_NUMBER = siteConfig.whatsappNumber;
 const WHATSAPP_MESSAGE = encodeURIComponent(
   "Merhaba, Doku Yazılım ile projem hakkında konuşmak istiyorum."
 );

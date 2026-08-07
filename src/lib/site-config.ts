@@ -66,6 +66,50 @@ export const siteConfig = {
   },
   /** Uluslararası formatta iletişim numarası (WhatsApp hattıyla aynı). */
   phone: "+905069060250",
+  /** Sayfada okunabilir biçimde gösterilen telefon. */
+  phoneDisplay: "+90 506 906 02 50",
+  /** wa.me bağlantılarının beklediği, "+" içermeyen biçim. */
+  whatsappNumber: "905069060250",
+  /** Yayınlanan iletişim e-postası. */
+  email: "frhttaspinar@gmail.com",
+  /**
+   * Gerçek fiziksel ofis.
+   *
+   * NAP (Name/Address/Phone) tutarlılığı için `full` metni site, Google
+   * Business Profile ve dizin kayıtlarında BİREBİR aynı yazılmalıdır; farklı
+   * kısaltma (Sok./Sk.) bile citation eşleşmesini zayıflatır.
+   *
+   * `postalCode` bilinçli olarak yok: doğrulanmış bir değer verilmedi, tahmin
+   * edilen posta kodu yanlış yerel sinyal üretir.
+   *
+   * Şema alanlarında ilçe yerine il kullanılıyor (`addressLocality: "Amasya"`):
+   * "Merkez" tek başına ülke genelinde ayırt edici değil, mahalle/sokak bilgisi
+   * zaten `streetAddress` içinde yer alıyor.
+   */
+  address: {
+    streetAddress: "Şeyhcui Mah., Poyraz Sk. No: 12/A",
+    addressLocality: "Amasya",
+    addressRegion: "Amasya",
+    addressCountry: "TR",
+    /** Sayfalarda gösterilen tek parça adres — GBP ile birebir aynı olmalı. */
+    full: "Şeyhcui Mah., Poyraz Sk. No: 12/A, Amasya Merkez/Amasya",
+    latitude: 40.6529354,
+    longitude: 35.8028473,
+    /**
+     * Google Maps kaydının kalıcı adresi (CID biçimi). Paylaşım URL'sindeki
+     * oturum/izleme parametreleri zamanla geçersizleşebildiği için kayıt
+     * kimliğine dayanan bu biçim tercih edildi.
+     */
+    mapsUrl: "https://maps.google.com/?cid=6684633581312182868",
+  },
+  /**
+   * Hizmet kapsamı. Sıra anlamlıdır: ülke geneli birincil ticari pazar,
+   * Amasya yalnızca fiziksel ofisin bulunduğu yerel bağlamdır.
+   */
+  areaServed: [
+    { type: "Country", name: "Türkiye" },
+    { type: "City", name: "Amasya" },
+  ],
 } as const;
 
 /** siteConfig.url tabanlı mutlak URL üretir. */

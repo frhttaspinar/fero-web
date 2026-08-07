@@ -12,7 +12,9 @@ import { lenisStore, smoothScrollTo } from "@/lib/lenisStore";
 const NAV_LINKS = [
   { label: "Hizmetler", href: "/#hizmetler" },
   { label: "Projeler", href: "/#projeler" },
-  { label: "İletişim", href: "/#iletisim" },
+  { label: "Hakkımızda", href: "/hakkimizda" },
+  // Hash yerine gerçek sayfa: iletişim ve konum bilgisi taranabilir bir URL'de.
+  { label: "İletişim", href: "/iletisim" },
 ];
 
 export function Header() {

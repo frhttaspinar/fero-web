@@ -11,9 +11,15 @@ import { geoFaq } from "@/lib/geo-faq";
  * data ile görünür içerik arasında sapma oluşamaz.
  *
  * Yalnızca doğrulanabilir bilgiler yer alır: marka adı, site adresi, açıklama,
- * mevcut iletişim numarası ve sayfada görünen hizmet ile SSS metinleri. Fiyat,
- * teklif, puan, değerlendirme, müşteri sayısı, adres veya kuruluş tarihi gibi
- * sitede görünmeyen alanlar bilinçli olarak yoktur.
+ * iletişim numarası, e-posta, gerçek fiziksel ofis adresi ve koordinatı, hizmet
+ * kapsamı ile sayfada görünen hizmet ve SSS metinleri. Fiyat, teklif, puan,
+ * değerlendirme, müşteri sayısı veya kuruluş tarihi gibi doğrulanmamış alanlar
+ * bilinçli olarak yoktur.
+ *
+ * Konumlandırma kuralı: `areaServed` içinde ülke geneli (Türkiye) birincil
+ * ticari kapsamdır, Amasya yalnızca fiziksel ofisin bulunduğu yerel bağlamdır.
+ * Hizmet adlarına (`Service.name`) şehir eklenmez — bu, ulusal arama niyetini
+ * yerel bir nişe daraltır.
  *
  * Organization içinde `sameAs` yoktur: alt bilgideki Instagram ve LinkedIn
  * adresleri kişisel profillerdir, kurumsal kimliği temsil etmez. `sameAs`
@@ -43,7 +49,12 @@ export function JsonLd() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Organization",
+        // Tek node, iki tip: ProfessionalService, LocalBusiness'ın alt tipidir.
+        // Ayrı bir LocalBusiness node'u açmak yerine mevcut Organization tipi
+        // genişletildi; böylece @id sabit kalıyor ve Service.provider,
+        // WebSite.publisher, WebPage.about ile blog author/publisher
+        // referanslarının tamamı adres/telefon taşıyan aynı varlığa bağlanıyor.
+        "@type": ["Organization", "ProfessionalService"],
         "@id": ORGANIZATION_ID,
         name: siteConfig.name,
         url: siteConfig.url,
@@ -54,7 +65,35 @@ export function JsonLd() {
           width: siteConfig.logo.width,
           height: siteConfig.logo.height,
         },
+        image: absoluteUrl(siteConfig.logo.path),
         telephone: siteConfig.phone,
+        email: siteConfig.email,
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: siteConfig.address.streetAddress,
+          addressLocality: siteConfig.address.addressLocality,
+          addressRegion: siteConfig.address.addressRegion,
+          addressCountry: siteConfig.address.addressCountry,
+        },
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: siteConfig.address.latitude,
+          longitude: siteConfig.address.longitude,
+        },
+        hasMap: siteConfig.address.mapsUrl,
+        // Sıra bilinçli: ülke geneli ticari kapsam, Amasya fiziksel bağlam.
+        areaServed: siteConfig.areaServed.map((area) => ({
+          "@type": area.type,
+          name: area.name,
+        })),
+        contactPoint: {
+          "@type": "ContactPoint",
+          contactType: "customer support",
+          telephone: siteConfig.phone,
+          email: siteConfig.email,
+          areaServed: "TR",
+          availableLanguage: ["Turkish"],
+        },
       },
       {
         "@type": "WebSite",

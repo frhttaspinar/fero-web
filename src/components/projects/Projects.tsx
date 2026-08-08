@@ -2,6 +2,7 @@
 
 import { Sparkles } from "lucide-react";
 import { ProjectCard, type Project } from "./ProjectCard";
+import { projectCatalog } from "@/lib/project-catalog";
 
 // Showcase projects backed by real client references under /refe. Each card's
 // showcase area follows the screenshot's natural aspect ratio (`ratio`), so
@@ -10,88 +11,10 @@ import { ProjectCard, type Project } from "./ProjectCard";
 // with no marketing UI uses a branded gradient tile with an icon instead.
 // `link` yalnızca gerçek bir canlı site adresi verildiğinde tanımlanır; adres
 // yoksa alan hiç yazılmaz ve kartta bağlantı katmanı render edilmez.
-const PROJECTS: Project[] = [
-  {
-    title: "E-Ticaret",
-    tag: "E-Ticaret",
-    description:
-      "Mobilya ve dekorasyon ürünleri için PayTR entegrasyonlu, yüksek dönüşümlü e-ticaret altyapısı.",
-    image: "/refe/deco.png",
-    ratio: "1919 / 882",
-  },
-  {
-    title: "Mobil Uygulama",
-    tag: "Mobil · iOS",
-    description:
-      "React Native ve Expo ile geliştirilen; numeroloji analizi, sesli sohbet ve kredili kullanım sunan yaşam tarzı uygulaması.",
-    image: "/refe/mobil.png",
-    ratio: "1242 / 2688",
-  },
-  {
-    title: "Atelier Mermer Studio",
-    tag: "Marka Vitrini",
-    description:
-      "El işçiliği mermer atölyesi için sanat ve zanaatı dijitale taşıyan, modern ve rustik esintili marka vitrini.",
-    image: "/refe/atelier.png",
-    ratio: "1920 / 879",
-  },
-  {
-    title: "Yaşam Tarzı",
-    tag: "Web · Sağlık",
-    description:
-      "Diyetisyen için kişiye özel beslenme programları ve online randevuyu öne çıkaran kişisel marka sitesi.",
-    image: "/refe/yasam.png",
-    ratio: "635 / 348",
-  },
-  {
-    title: "Mühendislik",
-    tag: "Kurumsal · Web",
-    description:
-      "Harita mühendisliği firması için ölçüm, imar ve kadastro hizmetlerini tanıtan kurumsal web sitesi.",
-    image: "/refe/harita.png",
-    ratio: "425 / 491",
-  },
-  {
-    title: "Moda Butik",
-    tag: "E-Ticaret · Moda",
-    description:
-      "Moda markası için zamansız koleksiyonları premium bir alışveriş deneyimiyle sunan butik e-ticaret vitrini.",
-    image: "/refe/moda.png",
-    ratio: "491 / 333",
-  },
-  {
-    title: "Kurumsal Tanıtım",
-    tag: "Kurumsal · Hukuk",
-    description:
-      "Hukuk ve danışmanlık bürosu için faaliyet alanlarını ve iletişimi öne çıkaran prestijli kurumsal tanıtım sitesi.",
-    image: "/refe/ova.png",
-    ratio: "1920 / 879",
-  },
-  {
-    title: "Yapay Zeka Asistanı",
-    tag: "Yapay Zeka",
-    description:
-      "Gemini Pro Live altyapısıyla geliştirilmiş, sıfır gecikmeli akıllı asistan entegrasyonu.",
-    image: "/refe/yz.jpeg",
-    ratio: "736 / 1104",
-  },
-  {
-    title: "Mühendislik Firması",
-    tag: "Kurumsal · Web",
-    description:
-      "Jeoloji mühendisliği firması için zemin etüdü, analiz ve danışmanlık hizmetlerini öne çıkaran kurumsal web sitesi.",
-    image: "/refe/mühendislik.png",
-    ratio: "427 / 489",
-  },
-  {
-    title: "Mobil Uygulama - Asistan",
-    tag: "Mobil · Yapay Zeka",
-    description:
-      "Araç sahipleri için arıza teşhisi, maliyet tahmini ve sesli usta asistanı sunan yapay zeka destekli mobil uygulama.",
-    image: "/refe/mobilusta.png",
-    ratio: "1206 / 2484",
-  },
-];
+// Veri src/lib/project-catalog.ts'te tek kaynakta tutulur; hizmet sayfaları da
+// aynı listeden okuduğu için bir proje iki yerde farklı anlatılamaz. Kart tipi
+// `link` ve `icon` gibi ek alanları desteklemeye devam eder.
+const PROJECTS: Project[] = projectCatalog;
 
 export function Projects() {
   return (

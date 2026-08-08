@@ -10,6 +10,11 @@
  * bildirdiği dönüş süresi ve alt bilgideki iletişim kanalları. Yapay zekâ
  * destekli geliştirme sorusu, stüdyonun beyan ettiği çalışma biçimini yansıtır.
  * Fiyat, teslim süresi taahhüdü veya doğrulanamayan üstünlük iddiası içermez.
+ *
+ * Kapsam: burada yalnızca **genel, marka ve konum** düzeyindeki sorular durur.
+ * Tek bir hizmete özgü sorular (web teknolojileri, mobil platformlar gibi) ilgili
+ * hizmet sayfasının kendi FAQ kaynağında (service-content.ts) yaşar; aynı soru
+ * iki sayfada birden yayınlanmaz, aksi hâlde iki FAQPage aynı içerikle yarışır.
  */
 
 export type FaqEntry = {
@@ -24,19 +29,9 @@ export const geoFaq: FaqEntry[] = [
       "Doku Yazılım yedi başlıkta hizmet veriyor: web geliştirme, mobil uygulama geliştirme, UI/UX tasarım, yapay zekâ çağrı asistanı, dijital pazarlama, otomasyon geliştirme ve e-ticaret siteleri. Projeler tasarımdan geliştirmeye uçtan uca yürütülüyor. Her hizmetin ayrıntısını ana sayfadaki Hizmetler bölümünde bulabilirsiniz.",
   },
   {
-    question: "Mobil uygulamalar hangi platformlar için geliştiriliyor?",
-    answer:
-      "Mobil uygulamalar iOS ve Android için geliştiriliyor. Tek bir kod tabanıyla iki platforma birden çıkabilmek için React Native ve Expo kullanılıyor, böylece aynı özellik seti her iki platformda paralel ilerliyor. Hedef, akıcı ve yüksek etkileşimli bir kullanıcı deneyimi.",
-  },
-  {
     question: "Yapay zekâ çağrı asistanı ne yapar?",
     answer:
       "Gelen telefon çağrılarını 7/24 doğal bir sesle karşılar. Sık sorulan soruları yanıtlar, randevu oluşturur ve CRM entegrasyonu üzerinden mevcut sistemlerle birlikte çalışabilir. Bu yapı, mesai dışındaki veya yoğun saatlerde gelen çağrıların karşılanmasına yardımcı olur.",
-  },
-  {
-    question: "Web projelerinde hangi teknolojiler kullanılıyor?",
-    answer:
-      "Web tarafında Next.js, React ve TypeScript kullanılıyor; yönlendirme için App Router tercih ediliyor. Amaç hızlı, erişilebilir ve arama motorlarına hazır uygulamalar üretmek. Kod tabanı ölçeklenebilir ve bakımı kolay olacak şekilde kuruluyor.",
   },
   {
     question: "Proje geliştirme süreci nasıl ilerliyor?",

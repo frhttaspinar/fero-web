@@ -12,8 +12,11 @@ const SITE_MAP: { label: string; href?: string }[] = [
   { label: "Ana Sayfa", href: "/#top" },
   { label: "Hizmetler", href: "/#hizmetler" },
   { label: "Projeler", href: "/#projeler" },
-  // href yok: tıklanınca iletişim modalı açılır
-  { label: "İletişim" },
+  { label: "Hakkımızda", href: "/hakkimizda" },
+  // Modal yerine gerçek sayfa: iletişim ve konum bilgisinin taranabilir bir
+  // URL'de bulunması yerel arama sinyali için gerekli. Hızlı dönüşüm yolu
+  // olarak modal "Proje Başlat" düğmesinde korunuyor.
+  { label: "İletişim", href: "/iletisim" },
   { label: "Gizlilik Politikası", href: "/gizlilik" },
 ];
 
@@ -132,7 +135,7 @@ const SOCIALS: {
   },
   {
     label: "WhatsApp",
-    href: "https://wa.me/905069060250",
+    href: `https://wa.me/${siteConfig.whatsappNumber}`,
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4" aria-hidden="true">
         <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 1.8c2.17 0 4.2.84 5.74 2.38a8.06 8.06 0 0 1 2.38 5.73c0 4.48-3.65 8.12-8.13 8.12a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-3.11.82.83-3.04-.19-.31a8.05 8.05 0 0 1-1.24-4.28c0-4.48 3.64-8.12 8.15-8.12Zm-4.6 4.86c-.15 0-.4.06-.6.29-.21.23-.79.77-.79 1.88s.81 2.18.92 2.33c.11.15 1.6 2.44 3.87 3.42.54.23.96.37 1.29.48.54.17 1.03.15 1.42.09.43-.06 1.33-.54 1.52-1.07.19-.53.19-.98.13-1.07-.06-.09-.21-.15-.44-.27-.23-.11-1.33-.66-1.54-.73-.21-.08-.36-.11-.5.11-.15.23-.58.73-.71.88-.13.15-.26.17-.49.06-.23-.12-.96-.36-1.83-1.13-.68-.6-1.13-1.35-1.27-1.58-.13-.23-.01-.35.1-.47.1-.1.23-.26.34-.39.11-.13.15-.23.23-.38.08-.15.04-.29-.02-.4-.06-.12-.5-1.24-.7-1.69-.18-.44-.36-.38-.5-.39l-.42-.01Z" />
@@ -181,10 +184,42 @@ export function Footer() {
           <div className="flex flex-col">
             <BrandLogo height={72} className="self-start" />
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-slate-600">
-              Mobil uygulamalardan yüksek performanslı web sistemlerine,
-              e-ticaret altyapılarından yapay zekâ asistanlarına kadar uçtan uca
-              dijital çözümler geliştiriyoruz.
+              Türkiye genelinde yazılım ve dijital çözüm hizmetleri. Mobil
+              uygulamalardan yüksek performanslı web sistemlerine, e-ticaret
+              altyapılarından yapay zekâ asistanlarına kadar uçtan uca projeler
+              geliştiriyoruz.
             </p>
+
+            {/* Görünür NAP. Tüm değerler siteConfig'ten tek kaynaktan gelir;
+                adres metni Google Business Profile kaydıyla birebir aynı
+                yazılmalıdır, farklı kısaltma citation eşleşmesini bozar.
+                Konum satırı ayrı tutuluyor: ana satış mesajı ülke geneli,
+                Amasya yalnızca fiziksel ofis bilgisidir. */}
+            <address className="mt-6 max-w-xs space-y-1.5 not-italic text-sm leading-relaxed text-slate-600">
+              <span className="block font-medium text-slate-900">
+                Fiziksel ofis: Amasya Merkez
+              </span>
+              <a
+                href={siteConfig.address.mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block transition-colors hover:text-black"
+              >
+                {siteConfig.address.full}
+              </a>
+              <a
+                href={`tel:${siteConfig.phone}`}
+                className="block transition-colors hover:text-black"
+              >
+                {siteConfig.phoneDisplay}
+              </a>
+              <a
+                href={`mailto:${siteConfig.email}`}
+                className="block transition-colors hover:text-black"
+              >
+                {siteConfig.email}
+              </a>
+            </address>
 
             <ul className="mt-6 flex flex-col gap-3">
               {SOCIALS.map((social) => {

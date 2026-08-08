@@ -44,6 +44,16 @@ export const geoFaq: FaqEntry[] = [
       "Süreç, iletişim formundan projenizi anlatmanızla başlıyor; mesajlara 24 saat içinde dönüş yapılıyor. Ardından ihtiyaç netleştiriliyor, UI/UX tarafında araştırmadan prototipe bir tasarım çalışması yürütülüyor ve geliştirme bu tasarımın üzerine kuruluyor. Kapsam ve takvim projeden projeye değiştiği için görüşme sırasında birlikte belirleniyor.",
   },
   {
+    question: "Doku Yazılım hangi bölgelere hizmet veriyor?",
+    answer:
+      "Doku Yazılım Türkiye genelindeki işletmelere ve projelere hizmet verir. Projeler Türkiye'nin farklı şehirlerinden uzaktan yürütülebilir. Fiziksel ofisimiz Amasya Merkez'dedir ve yüz yüze görüşme yapmak isteyen müşterilerimizi burada ağırlayabiliriz.",
+  },
+  {
+    question: "Doku Yazılım ofisini ziyaret edebilir miyim?",
+    answer:
+      "Evet. Doku Yazılım'ın fiziksel ofisi Amasya Merkez'dedir. Yüz yüze görüşme yapılabilir; adres ve yol tarifi iletişim sayfasındaki Google Maps bağlantısından görüntülenebilir.",
+  },
+  {
     question: "Doku Yazılım ile nasıl iletişime geçebilirim?",
     answer:
       "En hızlı yol sitedeki iletişim formu: sayfanın üstündeki “Bize Ulaşın” ve alt bilgideki “Proje Başlat” düğmeleri aynı formu açar. Alternatif olarak alt bilgideki WhatsApp bağlantısından doğrudan mesaj gönderebilir, Instagram veya LinkedIn hesapları üzerinden de ulaşabilirsiniz. Form gönderimleri iletişim e-posta kutusuna iletilir.",

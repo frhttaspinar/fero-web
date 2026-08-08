@@ -25,6 +25,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
+      url: absoluteUrl("/iletisim"),
+      lastModified: LAST_CONTENT_UPDATE,
+      changeFrequency: "yearly",
+      priority: 0.8,
+    },
+    {
+      url: absoluteUrl("/hakkimizda"),
+      lastModified: LAST_CONTENT_UPDATE,
+      changeFrequency: "yearly",
+      priority: 0.7,
+    },
+    {
       url: absoluteUrl("/gizlilik"),
       lastModified: LAST_CONTENT_UPDATE,
       changeFrequency: "yearly",

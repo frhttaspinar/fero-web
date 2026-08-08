@@ -1,5 +1,9 @@
 import { siteConfig, absoluteUrl } from "@/lib/site-config";
-import { serviceCatalog } from "@/lib/service-catalog";
+import {
+  serviceCatalog,
+  serviceEntityId,
+  hasLanding,
+} from "@/lib/service-catalog";
 import { geoFaq } from "@/lib/geo-faq";
 
 /**
@@ -140,11 +144,18 @@ export function JsonLd() {
           position: index + 1,
           item: {
             "@type": "Service",
-            "@id": `${siteConfig.url}/#service-${service.id}`,
+            // Hizmetin kalıcı kimliği. Hizmet sayfası açıldığında orada da
+            // AYNI @id kullanılır; ikinci bir hizmet kimliği üretilmez.
+            "@id": serviceEntityId(siteConfig.url, service.id),
             name: service.name,
             description: service.description,
             provider: { "@id": ORGANIZATION_ID },
-            url: absoluteUrl("/#hizmetler"),
+            // Hizmetin kanonik adresi: yayına alınmışsa kendi sayfası, değilse
+            // ana sayfadaki hizmetler bölümü. Böylece aynı hizmet için iki
+            // rakip adres oluşmaz ve otorite doğru sayfaya işaret eder.
+            url: hasLanding(service)
+              ? absoluteUrl(service.landingPath)
+              : absoluteUrl("/#hizmetler"),
           },
         })),
       },

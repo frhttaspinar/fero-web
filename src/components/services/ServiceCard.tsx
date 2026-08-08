@@ -1,8 +1,9 @@
 "use client";
 
 import type { ReactNode } from "react";
+import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
-import type { LucideIcon } from "lucide-react";
+import { ArrowUpRight, type LucideIcon } from "lucide-react";
 
 /** A floating chip inside the card's graphic showcase area. */
 export type VisualNode = {
@@ -25,6 +26,11 @@ export type VisualNode = {
 export type Service = {
   title: string;
   description: string;
+  /**
+   * Hizmetin kendi landing page'i. Yalnızca yayına alınmış hizmetlerde
+   * tanımlıdır; verildiğinde kartın tamamı tek bir semantic link olur.
+   */
+  href?: string;
   nodes: VisualNode[];
   /** Index pairs of nodes joined by dashed connector lines. */
   links?: [number, number][];
@@ -203,9 +209,10 @@ export function ServiceCard({ service, index }: { service: Service; index: numbe
   const animate = !reducedMotion;
   const featured = service.featured ?? false;
 
-  return (
+  // Grid span'i dış sarmalayıcı taşır; kartın kendisi her koşulda h-full kalır.
+  const card = (
     <motion.div
-      className={`h-full ${service.className ?? ""}`}
+      className="h-full"
       initial={{
         opacity: 0,
         y: 64,
@@ -283,8 +290,14 @@ export function ServiceCard({ service, index }: { service: Service; index: numbe
 
         {/* Text area: just a title and a description — no tags. */}
         <div className="flex flex-1 flex-col p-6 sm:p-7">
-          <h3 className="font-display text-xl font-semibold tracking-tight text-indigo-950 sm:text-2xl">
-            {service.title}
+          <h3 className="font-display flex items-start gap-1.5 text-xl font-semibold tracking-tight text-indigo-950 sm:text-2xl">
+            <span>{service.title}</span>
+            {service.href && (
+              <ArrowUpRight
+                className="mt-1.5 h-4 w-4 shrink-0 text-slate-400 transition-transform duration-200 group-hover/card:-translate-y-0.5 group-hover/card:translate-x-0.5 group-hover/card:text-indigo-950 sm:mt-2"
+                aria-hidden="true"
+              />
+            )}
           </h3>
           <p className="mt-2.5 text-[15px] leading-relaxed text-slate-600">
             {service.description}
@@ -292,5 +305,24 @@ export function ServiceCard({ service, index }: { service: Service; index: numbe
         </div>
       </motion.div>
     </motion.div>
+  );
+
+  // Landing page'i olan hizmetlerde kartın tamamı tek bir semantic <a> olur:
+  // klavyeyle ulaşılabilir, focus halkası görünür ve ekran okuyucu kartı tek
+  // bağlantı olarak duyurur. Sayfası olmayan hizmetlerde kart bağlantısız
+  // kalır — var olmayan bir adrese link üretilmez.
+  if (!service.href) {
+    return <div className={`h-full ${service.className ?? ""}`}>{card}</div>;
+  }
+
+  return (
+    <Link
+      href={service.href}
+      className={`group/card block h-full rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 ${
+        service.className ?? ""
+      }`}
+    >
+      {card}
+    </Link>
   );
 }

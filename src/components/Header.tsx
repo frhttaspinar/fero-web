@@ -10,7 +10,10 @@ import { lenisStore, smoothScrollTo } from "@/lib/lenisStore";
 // Kök-göreli hash: header alt sayfalarda da kullanıldığı için bağlantılar
 // ana sayfadaki bölümlere her koşulda ulaşır.
 const NAV_LINKS = [
-  { label: "Hizmetler", href: "/#hizmetler" },
+  // Hash yerine gerçek hub sayfası. Header'a tek tek hizmet linkleri
+  // eklenmiyor; hizmet sayfalarına giriş noktası hub ve ana sayfadaki
+  // hizmet kartları üzerinden veriliyor, böylece header sadeliği korunuyor.
+  { label: "Hizmetler", href: "/hizmetler" },
   { label: "Projeler", href: "/#projeler" },
   { label: "Hakkımızda", href: "/hakkimizda" },
   // Hash yerine gerçek sayfa: iletişim ve konum bilgisi taranabilir bir URL'de.

@@ -10,7 +10,7 @@ const YEAR = new Date().getFullYear();
 
 const SITE_MAP: { label: string; href?: string }[] = [
   { label: "Ana Sayfa", href: "/#top" },
-  { label: "Hizmetler", href: "/#hizmetler" },
+  { label: "Hizmetler", href: "/hizmetler" },
   { label: "Projeler", href: "/#projeler" },
   { label: "Hakkımızda", href: "/hakkimizda" },
   // Modal yerine gerçek sayfa: iletişim ve konum bilgisinin taranabilir bir
@@ -20,13 +20,17 @@ const SITE_MAP: { label: string; href?: string }[] = [
   { label: "Gizlilik Politikası", href: "/gizlilik" },
 ];
 
+// Yayına alınmış hizmetler kendi sayfalarına gider; henüz sayfası olmayanlar
+// hub'a yönlenir. Var olmayan bir adrese link üretilmez.
 const SERVICES = [
-  // Kök-göreli hash: footer alt sayfalarda da kullanıldığı için bağlantılar
-  // ana sayfadaki Hizmetler bölümüne her koşulda ulaşır.
-  { label: "Mobil Uygulama Çözümleri", href: "/#hizmetler" },
-  { label: "E-Ticaret Altyapıları", href: "/#hizmetler" },
-  { label: "Kurumsal Web Sistemleri", href: "/#hizmetler" },
-  { label: "Yapay Zeka Otomasyonları", href: "/#hizmetler" },
+  { label: "Web Sitesi Geliştirme", href: "/hizmetler/web-sitesi-gelistirme" },
+  {
+    label: "Mobil Uygulama Geliştirme",
+    href: "/hizmetler/mobil-uygulama-gelistirme",
+  },
+  { label: "E-Ticaret Altyapıları", href: "/hizmetler" },
+  { label: "Yapay Zeka Otomasyonları", href: "/hizmetler" },
+  { label: "Tüm Hizmetler", href: "/hizmetler" },
 ];
 
 const POSTS = [

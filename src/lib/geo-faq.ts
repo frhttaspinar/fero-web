@@ -41,17 +41,17 @@ export const geoFaq: FaqEntry[] = [
   {
     question: "Doku Yazılım hangi bölgelere hizmet veriyor?",
     answer:
-      "Doku Yazılım Türkiye genelindeki işletmelere ve projelere hizmet verir. Projeler Türkiye'nin farklı şehirlerinden uzaktan yürütülebilir. Fiziksel ofisimiz Amasya Merkez'dedir ve yüz yüze görüşme yapmak isteyen müşterilerimizi burada ağırlayabiliriz.",
+      "Doku Yazılım Türkiye genelindeki işletmelere ve projelere hizmet verir. Projeler Türkiye'nin farklı şehirlerinden çevrim içi toplantılarla ve uzaktan yürütülebilir.",
   },
   {
-    question: "Doku Yazılım ofisini ziyaret edebilir miyim?",
+    question: "Doku Yazılım ile yüz yüze görüşme yapabilir miyim?",
     answer:
-      "Evet. Doku Yazılım'ın fiziksel ofisi Amasya Merkez'dedir. Yüz yüze görüşme yapılabilir; adres ve yol tarifi iletişim sayfasındaki Google Maps bağlantısından görüntülenebilir.",
+      "Görüşmeleri şu anda çevrim içi gerçekleştiriyoruz. Telefon, WhatsApp veya e-posta üzerinden iletişime geçebilir, projeniz için uzaktan görüşme planlayabilirsiniz.",
   },
   {
     question: "Doku Yazılım ile nasıl iletişime geçebilirim?",
     answer:
-      "En hızlı yol sitedeki iletişim formu: sayfanın üstündeki “Bize Ulaşın” ve alt bilgideki “Proje Başlat” düğmeleri aynı formu açar. Alternatif olarak alt bilgideki WhatsApp bağlantısından doğrudan mesaj gönderebilir, Instagram veya LinkedIn hesapları üzerinden de ulaşabilirsiniz. Form gönderimleri iletişim e-posta kutusuna iletilir.",
+      "Sitedeki iletişim formunu kullanabilir veya iletişim sayfasındaki telefon, WhatsApp ve e-posta bağlantılarından bize ulaşabilirsiniz. Form gönderimleri belirlenmiş iletişim e-posta kutusuna iletilir.",
   },
   {
     question:

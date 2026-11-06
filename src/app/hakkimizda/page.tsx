@@ -6,14 +6,7 @@ import { ContactModalProvider } from "@/components/contact/ContactModalContext";
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import { siteConfig, absoluteUrl } from "@/lib/site-config";
 
-/**
- * İşletme kimliği sayfası.
- *
- * Konumlandırma kuralı: birincil mesaj Türkiye geneli hizmet kapsamıdır;
- * Amasya yalnızca fiziksel ofisin bulunduğu yer olarak, ikincil bilgi
- * biçiminde geçer. Başlık, açıklama ve H1'e şehir adı eklenmez — bu, ulusal
- * arama niyetini yerel bir nişe daraltır.
- */
+/** Türkiye genelinde uzaktan çalışan yazılım işletmesi tanıtımı. */
 export const metadata: Metadata = {
   title: "Hakkımızda",
   description:
@@ -48,7 +41,7 @@ function Section({
 export default function AboutPage() {
   const canonicalUrl = absoluteUrl("/hakkimizda");
 
-  // AboutPage, ana sayfadaki graph'ta tanımlı LocalBusiness varlığına bağlanır;
+  // AboutPage, ana sayfadaki graph'ta tanımlı Organization varlığına bağlanır;
   // entity tekrarı yaratmamak için node yeniden tanımlanmaz, yalnızca @id ile
   // referans verilir.
   const jsonLd = {
@@ -75,7 +68,7 @@ export default function AboutPage() {
               Hakkımızda
             </h1>
             <p className="text-sm text-muted-foreground">
-              Türkiye geneli hizmet · Fiziksel ofis Amasya Merkez
+              Türkiye geneli hizmet · Çevrim içi proje yönetimi
             </p>
 
             <div className="mt-12 space-y-10 text-lg leading-relaxed text-muted-foreground">
@@ -101,22 +94,18 @@ export default function AboutPage() {
                 </p>
               </Section>
 
-              <Section title="Fiziksel ofisimiz">
+              <Section title="Çevrim içi iletişim">
                 <p>
-                  Fiziksel ofisimiz Amasya Merkez&apos;dedir ve yüz yüze
-                  görüşmek isteyen müşterilerimizi burada ağırlayabiliriz. Ofise
-                  ait adres, telefon ve yol tarifi bilgilerinin tamamı{" "}
+                  Görüşmeleri ve proje süreçlerini şu anda çevrim içi
+                  yürütüyoruz. Türkiye&apos;nin her yerinden telefon, WhatsApp
+                  veya e-posta aracılığıyla bize ulaşabilir, proje ayrıntılarını{" "}
                   <Link
                     href="/iletisim"
                     className="text-foreground underline underline-offset-4 transition-colors hover:text-muted-foreground"
                   >
-                    iletişim sayfasında
+                    iletişim sayfasından
                   </Link>{" "}
-                  yer alır.
-                </p>
-                <p>
-                  Ofise gelmek zorunlu değildir; projelerin büyük bölümü uzaktan
-                  yürütülür ve görüşmeler çevrim içi yapılabilir.
+                  paylaşabilirsiniz.
                 </p>
               </Section>
 

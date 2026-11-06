@@ -142,17 +142,6 @@ export function Footer() {
 
             {/* Çevrim içi hizmet için yalnızca aktif iletişim kanalları gösterilir. */}
             <address className="mt-6 max-w-xs space-y-1.5 not-italic text-sm leading-relaxed text-slate-600">
-              <span className="block font-medium text-slate-900">
-                Fiziksel ofis: Amasya Merkez
-              </span>
-              <a
-                href={siteConfig.address.mapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block transition-colors hover:text-black"
-              >
-                {siteConfig.address.full}
-              </a>
               <a
                 href={`tel:${siteConfig.phone}`}
                 className="block transition-colors hover:text-black"

@@ -65,13 +65,13 @@ export const siteConfig = {
       "https://www.linkedin.com/in/ferhat-ta%C5%9Fpinar-110814396/",
   },
   /** Uluslararası formatta iletişim numarası (WhatsApp hattıyla aynı). */
-  phone: "+905069060250",
+  phone: "+905061262764",
   /** Sayfada okunabilir biçimde gösterilen telefon. */
-  phoneDisplay: "+90 506 906 02 50",
+  phoneDisplay: "+90 506 126 27 64",
   /** wa.me bağlantılarının beklediği, "+" içermeyen biçim. */
-  whatsappNumber: "905069060250",
+  whatsappNumber: "905061262764",
   /** Yayınlanan iletişim e-postası. */
-  email: "frhttaspinar@gmail.com",
+  email: "dokuyazilim@gmail.com",
   /**
    * Gerçek fiziksel ofis.
    *

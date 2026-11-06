@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { X, CheckCircle2, Loader2 } from "lucide-react";
+import { siteConfig } from "@/lib/site-config";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -192,7 +193,7 @@ export function ContactModal({
                   {status === "error" && (
                     <p className="text-sm text-red-600" role="alert">
                       Bir şeyler ters gitti. Tekrar dener misin, ya da doğrudan
-                      frhttaspinar@gmail.com adresine yazabilirsin.
+                      {siteConfig.email} adresine yazabilirsin.
                     </p>
                   )}
 

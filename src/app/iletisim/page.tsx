@@ -6,29 +6,17 @@ import { ContactModalProvider } from "@/components/contact/ContactModalContext";
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import { siteConfig, absoluteUrl } from "@/lib/site-config";
 
-/**
- * İletişim ve konum sayfası.
- *
- * Bu sayfa, iletişim modalının taranabilir karşılığıdır: modal hızlı dönüşüm
- * için korunur, NAP (Name/Address/Phone) bilgisi ise kalıcı bir URL'de yer alır.
- *
- * İki bilgi bilinçli olarak ayrı sunulur — hizmet alanı Türkiye geneli, fiziksel
- * ofis Amasya Merkez. Sayfanın amacı konum olduğu için adres burada daha
- * görünürdür; bu, sitenin ulusal konumlandırmasını değiştirmez.
- *
- * Adres, telefon ve e-posta siteConfig'ten tek kaynaktan okunur ve Google
- * Business Profile kaydıyla birebir aynı olmalıdır.
- */
+/** Türkiye geneli çevrim içi hizmetler için iletişim sayfası. */
 export const metadata: Metadata = {
   title: "İletişim",
   description:
-    "Doku Yazılım ile iletişime geçin. Türkiye genelinde uzaktan proje yürütüyoruz; fiziksel ofisimiz Amasya Merkez'dedir. Telefon, e-posta ve adres bilgileri.",
+    "Doku Yazılım ile iletişime geçin. Türkiye genelinde uzaktan yazılım projeleri yürütüyoruz. Telefon, WhatsApp ve e-posta bilgilerimiz.",
   alternates: { canonical: "/iletisim" },
   openGraph: {
     type: "website",
     title: "İletişim",
     description:
-      "Doku Yazılım iletişim bilgileri: telefon, e-posta, WhatsApp ve fiziksel ofis adresi.",
+      "Doku Yazılım iletişim bilgileri: telefon, e-posta ve WhatsApp.",
     url: "/iletisim",
   },
 };
@@ -47,9 +35,7 @@ function InfoRow({ label, children }: { label: string; children: React.ReactNode
 export default function ContactPage() {
   const canonicalUrl = absoluteUrl("/iletisim");
 
-  // ContactPage, ana sayfadaki graph'ta tanımlı LocalBusiness varlığına @id ile
-  // bağlanır; adres, telefon ve çalışma saatleri orada tanımlı olduğu için
-  // burada tekrar edilmez, entity çiftlenmesi oluşmaz.
+  // İletişim sayfası ana sayfadaki tek Organization kimliğine bağlanır.
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ContactPage",
@@ -77,9 +63,9 @@ export default function ContactPage() {
               İletişim
             </h1>
             <p className="max-w-2xl text-lg leading-relaxed text-muted-foreground">
-              Projenizi anlatın, 24 saat içinde dönüş yapalım. Türkiye&apos;nin
-              her yerindeki projeleri uzaktan yürütüyoruz; yüz yüze görüşmek
-              isterseniz ofisimizde ağırlayabiliriz.
+              Projenizi anlatın, en kısa sürede dönüş yapalım. Türkiye&apos;nin
+              her yerindeki yazılım projelerini çevrim içi görüşmelerle uzaktan
+              yürütüyoruz.
             </p>
 
             <dl className="mt-12 border-t border-border/50">
@@ -89,21 +75,6 @@ export default function ContactPage() {
                   Projeler Türkiye&apos;nin farklı şehirlerinden uzaktan
                   yürütülebilir.
                 </span>
-              </InfoRow>
-
-              <InfoRow label="Fiziksel Ofis">
-                Amasya Merkez
-                <address className="mt-1 not-italic text-base leading-relaxed text-muted-foreground">
-                  {siteConfig.address.full}
-                </address>
-                <a
-                  href={siteConfig.address.mapsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`mt-2 inline-block text-base ${linkClass}`}
-                >
-                  Google Maps&apos;te aç — yol tarifi al →
-                </a>
               </InfoRow>
 
               <InfoRow label="Telefon">
@@ -129,13 +100,6 @@ export default function ContactPage() {
                 </a>
               </InfoRow>
 
-              <InfoRow label="Çalışma Saatleri">
-                7/24
-                <span className="mt-1 block text-base text-muted-foreground">
-                  Her gün 24 saat ulaşabilirsiniz; mesajlarınıza 24 saat içinde
-                  dönüş yapılır.
-                </span>
-              </InfoRow>
             </dl>
 
             <p className="mt-10 text-lg leading-relaxed text-muted-foreground">

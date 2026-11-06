@@ -58,12 +58,6 @@ export const siteConfig = {
     width: 1024,
     height: 1024,
   },
-  /** Yalnızca gerçekten var olan hesaplar. */
-  social: {
-    instagram: "https://www.instagram.com/ferotaspinar/",
-    linkedin:
-      "https://www.linkedin.com/in/ferhat-ta%C5%9Fpinar-110814396/",
-  },
   /** Uluslararası formatta iletişim numarası (WhatsApp hattıyla aynı). */
   phone: "+905061262764",
   /** Sayfada okunabilir biçimde gösterilen telefon. */
@@ -72,65 +66,8 @@ export const siteConfig = {
   whatsappNumber: "905061262764",
   /** Yayınlanan iletişim e-postası. */
   email: "dokuyazilim@gmail.com",
-  /**
-   * Gerçek fiziksel ofis.
-   *
-   * NAP (Name/Address/Phone) tutarlılığı için `full` metni site, Google
-   * Business Profile ve dizin kayıtlarında BİREBİR aynı yazılmalıdır; farklı
-   * kısaltma (Sok./Sk.) bile citation eşleşmesini zayıflatır.
-   *
-   * `postalCode` bilinçli olarak yok: doğrulanmış bir değer verilmedi, tahmin
-   * edilen posta kodu yanlış yerel sinyal üretir.
-   *
-   * Şema alanlarında ilçe yerine il kullanılıyor (`addressLocality: "Amasya"`):
-   * "Merkez" tek başına ülke genelinde ayırt edici değil, mahalle/sokak bilgisi
-   * zaten `streetAddress` içinde yer alıyor.
-   */
-  address: {
-    streetAddress: "Şeyhcui Mah., Poyraz Sk. No: 12/A",
-    addressLocality: "Amasya",
-    addressRegion: "Amasya",
-    addressCountry: "TR",
-    /** Sayfalarda gösterilen tek parça adres — GBP ile birebir aynı olmalı. */
-    full: "Şeyhcui Mah., Poyraz Sk. No: 12/A, Amasya Merkez/Amasya",
-    latitude: 40.6529354,
-    longitude: 35.8028473,
-    /**
-     * Google Maps kaydının kalıcı adresi (CID biçimi). Paylaşım URL'sindeki
-     * oturum/izleme parametreleri zamanla geçersizleşebildiği için kayıt
-     * kimliğine dayanan bu biçim tercih edildi.
-     */
-    mapsUrl: "https://maps.google.com/?cid=6684633581312182868",
-  },
-  /**
-   * Çalışma saatleri: 7/24 (işletme sahibinin doğrudan kararı).
-   *
-   * schema.org'da "24 saat açık" karşılığı opens "00:00" / closes "23:59"
-   * biçimidir. Bu değer Google Business Profile kaydıyla aynı tutulmalıdır;
-   * GBP'de farklı saat girilirse iki kaynak çelişir ve yerel doğruluk sinyali
-   * zayıflar.
-   */
-  openingHours: {
-    days: [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday",
-    ],
-    opens: "00:00",
-    closes: "23:59",
-  },
-  /**
-   * Hizmet kapsamı. Sıra anlamlıdır: ülke geneli birincil ticari pazar,
-   * Amasya yalnızca fiziksel ofisin bulunduğu yerel bağlamdır.
-   */
-  areaServed: [
-    { type: "Country", name: "Türkiye" },
-    { type: "City", name: "Amasya" },
-  ],
+  /** Türkiye genelinde uzaktan sunulan hizmetler. */
+  areaServed: [{ type: "Country", name: "Türkiye" }],
 } as const;
 
 /** siteConfig.url tabanlı mutlak URL üretir. */

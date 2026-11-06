@@ -5,7 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import {
   FaReact, FaAws, FaDocker, FaNodeJs, FaGithub,
-  FaTwitter, FaLinkedin, FaInstagram, FaGoogle, FaApple, FaFigma
+  FaTwitter, FaGoogle, FaApple, FaFigma
 } from "react-icons/fa";
 import {
   SiNextdotjs, SiVercel, SiRedux, SiTypescript, SiFacebook, SiTailwindcss
@@ -22,8 +22,6 @@ const iconConfigs = [
   { Icon: SiTypescript, color: "#3178C6" },
   { Icon: FaGithub, color: "#181717" },
   { Icon: FaTwitter, color: "#1DA1F2" },
-  { Icon: FaLinkedin, color: "#0077B5" },
-  { Icon: FaInstagram, color: "#E1306C" },
   { Icon: FaGoogle, color: "#DB4437" },
   { Icon: FaApple, color: "#000000" },
   { Icon: SiFacebook, color: "#1877F2" },
@@ -48,13 +46,11 @@ export default function FeatureSection() {
         <p className="text-muted-foreground mb-6 max-w-xl text-lg sm:text-xl leading-relaxed">
           Web geliştirme, yüksek performanslı mobil uygulamalar, yapay zekâ entegrasyonları ve otomasyon. Hepsi Doku Yazılım standartlarında, markanıza özel ve ölçeklenebilir bir yapıda.
         </p>
-        {/* İşletme kimliğini doğrulayan konum satırı. Vurgu bilinçli olarak
-            ülke genelinde: Amasya ikincil bilgi olarak, ofisin fiziksel yeri
-            olarak geçiyor — hizmet/pazar tanımı olarak değil. */}
+        {/* Türkiye genelinde çevrim içi sunulan hizmetler. */}
         <p className="text-muted-foreground mb-10 max-w-xl text-base leading-relaxed">
-          Doku Yazılım, Türkiye genelindeki işletmeler ve projeler için çalışır.
-          Fiziksel ofisimiz Amasya Merkez&apos;de bulunur; Türkiye&apos;nin her
-          yerindeki projeler uzaktan yürütülebilir.
+          Doku Yazılım, Türkiye genelindeki işletmeler ve girişimler için
+          çalışır. Proje görüşmeleri ve yazılım geliştirme süreçleri,
+          bulunduğunuz şehirden bağımsız olarak çevrim içi yürütülür.
         </p>
         <div className="flex flex-wrap items-center gap-4">
           <motion.div

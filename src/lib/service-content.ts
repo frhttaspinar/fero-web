@@ -13,7 +13,7 @@ import type { ServiceId } from "./service-catalog";
  *   sınırlıdır; SEO için uzatılmaz.
  * - Sıralama, süre, fiyat veya sonuç garantisi verilmez.
  * - Şehir adı hedeflenmez: hizmetler Türkiye genelindeki ticari arama
- *   niyetine yöneliktir, Amasya yalnızca fiziksel ofis bilgisidir.
+ *   niyetine yöneliktir ve hizmetler Türkiye genelinde uzaktan sunulur.
  */
 
 export type ServiceFaqEntry = {

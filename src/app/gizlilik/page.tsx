@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
 };
 
-const LAST_UPDATED = "31 Temmuz 2026";
+const LAST_UPDATED = "6 Kasım 2026";
 
 function Section({
   title,
@@ -119,7 +119,7 @@ export default function PrivacyPolicy() {
                   </li>
                   <li>
                     <strong className="font-medium text-foreground">
-                      WhatsApp ve Instagram
+                      WhatsApp
                     </strong>{" "}
                     — sitedeki bağlantılara tıklarsanız ilgili platforma
                     yönlendirilirsiniz ve o noktadan sonra o platformun kendi

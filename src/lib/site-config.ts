@@ -65,7 +65,7 @@ export const siteConfig = {
   /** wa.me bağlantılarının beklediği, "+" içermeyen biçim. */
   whatsappNumber: "905061262764",
   /** Yayınlanan iletişim e-postası. */
-  email: "dokuyazilim@gmail.com",
+  email: "yazilimdoku@gmail.com",
   /** Türkiye genelinde uzaktan sunulan hizmetler. */
   areaServed: [{ type: "Country", name: "Türkiye" }],
 } as const;

@@ -27,10 +27,14 @@ npm run dev
 ### İletişim formunu aktif etmek (Web3Forms)
 
 1. [web3forms.com](https://web3forms.com) adresine git, e-posta adresinle
-   ücretsiz bir **Access Key** oluştur (frhttaspinar@gmail.com ile doğrula).
+   ücretsiz bir **Access Key** oluştur. Form bildirimlerini yeni kurumsal
+   adrese almak için **yazilimdoku@gmail.com** adresini doğrula.
 2. Aldığın key'i `.env.local` içindeki `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY`
    değişkenine yapıştır.
-3. Form artık doğrudan bu maile düşer — veritabanı, backend gerekmez.
+3. Bu adrese ait doğrulanmış Access Key etkin olduğunda form gönderimleri
+   **yazilimdoku@gmail.com** gelen kutusuna yönlenir — veritabanı, backend gerekmez.
+   **Not:** Sitedeki görünür e-posta değişikliği, Web3Forms'un mevcut alıcı
+   adresini otomatik değiştirmez. Vercel Production'daki anahtarı kontrol et.
 
 Vercel'e deploy ederken aynı değişkeni **Project Settings → Environment
 Variables** kısmına eklemeyi unutma.
